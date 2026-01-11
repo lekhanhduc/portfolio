@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <polygon 
+    points="50,2 95,25 95,75 50,98 5,75 5,25" 
+    fill="none" 
+    stroke="url(#hexGradient)" 
+    stroke-width="4"
+  />
+  <text 
+    x="50" 
+    y="62" 
+    text-anchor="middle" 
+    fill="url(#hexGradient)" 
+    font-size="42" 
+    font-weight="bold"
+    font-family="Arial, sans-serif"
+  >Đ</text>
+</svg>
