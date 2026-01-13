@@ -5,3 +5,4 @@ export { default as Skills } from "./Skills";
 export { default as Work } from "./Work";
 export { default as Contact } from "./Contact";
 export { default as Footer } from "./Footer";
+export { default as Preloader } from "./Preloader";

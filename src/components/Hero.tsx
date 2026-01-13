@@ -3,11 +3,49 @@ import { FaFacebook, FaInstagram, FaTiktok, FaYoutube, FaGithub, FaEnvelope } fr
 import { personalInfo, socials } from "../constants";
 import { useTheme } from "../context/ThemeContext";
 import type { JSX } from "react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
   const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Typing animation state
+  const roles = ["Backend Developer", "Java Spring Boot Developer", "AWS Cloud Engineer", "Microservices Architect"];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+    
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // Typing
+        if (displayedText.length < currentRole.length) {
+          setDisplayedText(currentRole.substring(0, displayedText.length + 1));
+          setTypingSpeed(100 + Math.random() * 100); // Variable speed for natural feel
+        } else {
+          // Pause at end before deleting
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting
+        if (displayedText.length > 0) {
+          setDisplayedText(currentRole.substring(0, displayedText.length - 1));
+          setTypingSpeed(50);
+        } else {
+          // Move to next role
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+          setTypingSpeed(500); // Pause before typing next
+        }
+      }
+    };
+    
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentRoleIndex, typingSpeed, roles]);
   
   // 3D Tilt effect for avatar
   const mouseX = useMotionValue(0);
@@ -140,9 +178,14 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20, rotateX: -20 }}
                 animate={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-xl lg:text-2xl xl:text-3xl text-secondary mt-4"
+                className="text-xl lg:text-2xl xl:text-3xl text-secondary mt-4 flex items-center gap-2"
               >
-                {personalInfo.role}
+                <span>{displayedText}</span>
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="inline-block w-0.5 h-6 lg:h-8 bg-primary"
+                />
               </motion.h2>
             </motion.div>
 
