@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaAws } from "react-icons/fa";
 import { 
   SiSpring, SiPostgresql, SiApachekafka, SiDocker, SiElasticsearch,
-  SiRedis, SiNextdotjs, SiSocketdotio, SiKubernetes
+  SiRedis, SiNextdotjs, SiSocketdotio, SiKubernetes, SiAwslambda, SiReact
 } from "react-icons/si";
 import { TbApi, TbCreditCard } from "react-icons/tb";
 import { BsStars, BsDatabase } from "react-icons/bs";
@@ -30,9 +30,17 @@ const projects = [
     title: "FPT-EXAM System",
     description: "Online examination system for FPT University with exam management, auto-grading, proctoring features, and result analytics. Deployed in production.",
     tags: ["Spring Boot", "Next.js", "PostgreSQL", "Redis", "WebSocket", "PayOS", "AWS"],
-    github: "https://github.com/lekhanhduc",
+    github: "https://github.com/lekhanhduc/fpt-exam-sync-backend",
     demo: "https://www.khaothifudn.org",
     image: "📝",
+  },
+  {
+    title: "Serverless Blog Platform",
+    description: "Modern serverless blog platform on AWS with microservices architecture. Features user auth via Cognito, Markdown support, comments, and email notifications.",
+    tags: ["AWS Lambda", "API Gateway", "DynamoDB", "SNS", "Cognito", "Brevo", "React"],
+    github: "https://github.com/lekhanhduc/serverless-blog-platform",
+    demo: "https://blog.javabuilder.online",
+    image: "📰",
   },
 ];
 
@@ -55,6 +63,13 @@ const Work = () => {
     "PayOS": { icon: <TbCreditCard />, color: "text-green-400" },
     "AWS": { icon: <FaAws />, color: "text-orange-400" },
     "GKE": { icon: <SiKubernetes />, color: "text-blue-500" },
+    "AWS Lambda": { icon: <SiAwslambda />, color: "text-orange-500" },
+    "API Gateway": { icon: <FaAws />, color: "text-purple-500" },
+    "DynamoDB": { icon: <FaAws />, color: "text-blue-500" },
+    "Cognito": { icon: <FaAws />, color: "text-red-400" },
+    "React": { icon: <SiReact />, color: "text-cyan-400" },
+    "SNS": { icon: <FaAws />, color: "text-pink-500" },
+    "Brevo": { icon: <FaAws />, color: "text-blue-400" },
   };
   const titleClass = theme === "dark" ? "text-white" : "text-slate-800";
   const tagBgClass = theme === "dark" ? "bg-slate-800/50 border-slate-600/50" : "bg-slate-100 border-slate-300";

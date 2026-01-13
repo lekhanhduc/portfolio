@@ -60,6 +60,7 @@ const Skills = () => {
         { name: "S3", icon: <SiAmazons3 />, iconColor: "text-green-500" },
         { name: "CloudFront", icon: <FaAws />, iconColor: "text-purple-400" },
         { name: "Lambda", icon: <SiAwslambda />, iconColor: "text-orange-500" },
+        { name: "API Gateway", icon: <FaAws />, iconColor: "text-purple-500" },
         { name: "SES", icon: <FaAws />, iconColor: "text-blue-400" },
         { name: "Elastic Beanstalk", icon: <SiAwselasticloadbalancing />, iconColor: "text-orange-400" },
         { name: "CodeCommit", icon: <FaAws />, iconColor: "text-blue-500" },
