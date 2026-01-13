@@ -11,6 +11,14 @@ import type { JSX } from "react";
 
 const projects = [
   {
+    title: "Serverless Blog Platform",
+    description: "Modern serverless blog platform on AWS with microservices architecture. Features user auth via Cognito, Markdown support, comments, and email notifications.",
+    tags: ["AWS Lambda", "API Gateway", "S3", "CloudFront", "DynamoDB", "CloudWatch", "Secrets Manager", "SNS", "Cognito", "Brevo", "React"],
+    github: "https://github.com/lekhanhduc/serverless-blog-platform",
+    demo: "https://blog.javabuilder.online",
+    image: "📰",
+  },
+  {
     title: "E-Learning Platform",
     description: "Full-featured online learning platform with course management, video streaming, payment integration, and real-time notifications. Deployed in production.",
     tags: ["Spring Boot", "Next.js", "PostgreSQL", "Redis", "WebSocket", "PayOS", "AWS"],
@@ -33,14 +41,6 @@ const projects = [
     github: "https://github.com/lekhanhduc/fpt-exam-sync-backend",
     demo: "https://www.khaothifudn.org",
     image: "📝",
-  },
-  {
-    title: "Serverless Blog Platform",
-    description: "Modern serverless blog platform on AWS with microservices architecture. Features user auth via Cognito, Markdown support, comments, and email notifications.",
-    tags: ["AWS Lambda", "API Gateway", "DynamoDB", "SNS", "Cognito", "Brevo", "React"],
-    github: "https://github.com/lekhanhduc/serverless-blog-platform",
-    demo: "https://blog.javabuilder.online",
-    image: "📰",
   },
 ];
 
@@ -70,11 +70,15 @@ const Work = () => {
     "React": { icon: <SiReact />, color: "text-cyan-400" },
     "SNS": { icon: <FaAws />, color: "text-pink-500" },
     "Brevo": { icon: <FaAws />, color: "text-blue-400" },
+    "S3": { icon: <FaAws />, color: "text-green-500" },
+    "CloudFront": { icon: <FaAws />, color: "text-purple-400" },
+    "CloudWatch": { icon: <FaAws />, color: "text-orange-400" },
+    "Secrets Manager": { icon: <FaAws />, color: "text-red-500" },
   };
   const titleClass = theme === "dark" ? "text-white" : "text-slate-800";
   const tagBgClass = theme === "dark" ? "bg-slate-800/50 border-slate-600/50" : "bg-slate-100 border-slate-300";
   const tagTextClass = theme === "dark" ? "text-slate-300" : "text-slate-600";
-  
+
   return (
     <section id="work" className="py-20 relative flex justify-center">
       <div className="w-full max-w-6xl px-8 sm:px-12 lg:px-16">
