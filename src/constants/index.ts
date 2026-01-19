@@ -11,7 +11,7 @@ export const personalInfo = {
   university: "FPT University Danang",
   description: "Backend-focused engineer passionate about scalable, reliable, and secure systems. Strong expertise in Java, Spring Boot, and RESTful API development.",
   quote: "Backend is the invisible engine that powers seamless user experiences.",
-  openTo: "Java Developer",
+  openTo: "Backend Developer",
 };
 
 export const socials = [
