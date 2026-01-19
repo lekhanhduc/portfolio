@@ -1,20 +1,21 @@
 import { motion } from "framer-motion";
-import { 
+import {
   SiSpring, SiPostgresql, SiMysql, SiRedis, SiElasticsearch,
   SiDocker, SiJenkins, SiApachekafka, SiPrometheus, SiGrafana,
   SiReact, SiNextdotjs, SiGit, SiPostman,
   SiSwagger, SiSonarqube, SiJsonwebtokens, SiSocketdotio,
-  SiAmazonec2, SiAwselasticloadbalancing, SiAwslambda, SiAmazons3, SiAmazoniam
+  SiAmazonec2, SiAwselasticloadbalancing, SiAwslambda, SiAmazons3, SiAmazoniam,
+  SiSharp, SiDotnet
 } from "react-icons/si";
-import { FaJava, FaAws, FaShieldAlt, FaKey, FaCloud, FaDatabase, FaRobot } from "react-icons/fa";
+import { FaJava, FaAws, FaShieldAlt, FaKey, FaCloud, FaDatabase, FaRobot, FaCode } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 
 const Skills = () => {
   const { theme } = useTheme();
-  
+
   const skillCategories = [
     {
-      title: "Backend",
+      title: "Backend (Java)",
       color: "from-orange-500 to-red-500",
       skills: [
         { name: "Java", icon: <FaJava />, iconColor: "text-orange-500" },
@@ -25,6 +26,18 @@ const Skills = () => {
         { name: "Spring AI", icon: <FaRobot />, iconColor: "text-green-500" },
         { name: "WebSocket", icon: <SiSocketdotio />, iconColor: theme === "dark" ? "text-gray-300" : "text-gray-700" },
         { name: "JWT", icon: <SiJsonwebtokens />, iconColor: "text-pink-500" },
+      ],
+    },
+    {
+      title: "Backend (.NET)",
+      color: "from-purple-500 to-indigo-500",
+      skills: [
+        { name: "C#", icon: <SiSharp />, iconColor: "text-purple-600" },
+        { name: "ASP.NET Core", icon: <SiDotnet />, iconColor: "text-purple-500" },
+        { name: "ASP.NET Web API", icon: <SiDotnet />, iconColor: "text-purple-500" },
+        { name: "Entity Framework", icon: <FaDatabase />, iconColor: "text-purple-400" },
+        { name: "LINQ", icon: <FaCode />, iconColor: "text-blue-400" },
+        { name: "Async/Await", icon: <FaCode />, iconColor: theme === "dark" ? "text-yellow-400" : "text-yellow-600" },
       ],
     },
     {
@@ -100,9 +113,9 @@ const Skills = () => {
       ],
     },
   ];
-  
+
   const titleClass = theme === "dark" ? "text-white" : "text-slate-800";
-  
+
   return (
     <section id="skills" className="py-24 relative flex justify-center">
       <div className="w-full max-w-6xl px-8 sm:px-12 lg:px-16">
