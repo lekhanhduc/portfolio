@@ -7,7 +7,7 @@ const About = () => {
   const { theme } = useTheme();
   const highlightClass = theme === "dark" ? "text-white font-medium" : "text-slate-800 font-semibold";
   const titleClass = theme === "dark" ? "text-white" : "text-slate-800";
-  
+
   return (
     <section id="about" className="py-16 relative flex justify-center">
       <div className="w-full max-w-6xl px-8 sm:px-12 lg:px-16">
@@ -38,7 +38,7 @@ const About = () => {
           </div>
           <div className="space-y-4 text-secondary leading-relaxed">
             <p>
-              I'm a passionate <span className={highlightClass}>Java Backend Engineer</span> with a strong focus on building scalable, reliable, and secure systems. Graduated in Software Engineering from <span className="text-primary font-medium">FPT University Da Nang</span> with GPA 3.2.
+              I'm a passionate <span className={highlightClass}>Java Backend Engineer</span> with a strong focus on building scalable, reliable, and secure systems. Graduated in Software Engineering from <span className="text-primary font-medium">FPT University Da Nang</span> with GPA 3.1.
             </p>
             <p>
               With hands-on experience in <span className={highlightClass}>Spring Boot, Microservices Architecture, and Cloud Technologies</span>, I've successfully deployed multiple production-ready applications serving real users. My projects range from e-learning platforms to complex rental management systems with 19+ microservices.
@@ -67,7 +67,7 @@ const About = () => {
               </div>
             </div>
             <p className="text-secondary">{personalInfo.university}</p>
-            <p className="text-secondary text-sm mt-2">GPA: 3.2</p>
+            <p className="text-secondary text-sm mt-2">GPA: 3.1</p>
           </motion.div>
 
           <motion.div

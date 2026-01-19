@@ -4,21 +4,22 @@ import { personalInfo, socials } from "../constants";
 import { useTheme } from "../context/ThemeContext";
 import type { JSX } from "react";
 import { useRef, useState, useEffect } from "react";
+import HeroBackground from "./canvas/HeroBackground";
 
 const Hero = () => {
   const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Typing animation state
   const roles = ["Backend Developer", "Java Spring Boot Developer", "AWS Cloud Engineer", "Microservices Architect"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  
+
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
-    
+
     const handleTyping = () => {
       if (!isDeleting) {
         // Typing
@@ -42,18 +43,18 @@ const Hero = () => {
         }
       }
     };
-    
+
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentRoleIndex, typingSpeed, roles]);
-  
+
   // 3D Tilt effect for avatar
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   const rotateX = useSpring(useTransform(mouseY, [-300, 300], [15, -15]), { stiffness: 100, damping: 30 });
   const rotateY = useSpring(useTransform(mouseX, [-300, 300], [-15, 15]), { stiffness: 100, damping: 30 });
-  
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -62,12 +63,12 @@ const Hero = () => {
     mouseX.set(e.clientX - centerX);
     mouseY.set(e.clientY - centerY);
   };
-  
+
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
   };
-  
+
   const socialIcons: Record<string, { icon: JSX.Element; color: string }> = {
     facebook: { icon: <FaFacebook />, color: "text-blue-500" },
     instagram: { icon: <FaInstagram />, color: "text-pink-500" },
@@ -79,60 +80,7 @@ const Hero = () => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
-      {/* Animated 3D background effects */}
-      <div className="absolute inset-0 perspective-1000">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-            rotateZ: [0, 180, 360]
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl" 
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.1, 0.2, 0.1],
-            rotateZ: [360, 180, 0]
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" 
-        />
-        <motion.div 
-          animate={{ 
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            z: [0, 50, 0]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl" 
-        />
-        
-        {/* 3D Floating particles */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/40 rounded-full"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 3) * 20}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 10, 0],
-              scale: [1, 1.5, 1],
-              opacity: [0.3, 0.7, 0.3],
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.3,
-            }}
-          />
-        ))}
-      </div>
+      <HeroBackground />
 
       <div className="max-w-6xl w-full mx-auto px-8 sm:px-12 lg:px-16 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -144,7 +92,7 @@ const Hero = () => {
               transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
               style={{ transformStyle: "preserve-3d" }}
             >
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: -20, z: -50 }}
                 animate={{ opacity: 1, y: 0, z: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -152,7 +100,7 @@ const Hero = () => {
               >
                 Hello, I'm
               </motion.p>
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, scale: 0.5, rotateX: 45 }}
                 animate={{ opacity: 1, scale: 1, rotateX: 0 }}
                 transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 120 }}
@@ -160,13 +108,13 @@ const Hero = () => {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 {personalInfo.name.split(" ")[0]}{" "}
-                <motion.span 
+                <motion.span
                   initial={{ opacity: 0, x: 50, rotateY: 30 }}
                   animate={{ opacity: 1, x: 0, rotateY: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                   className="gradient-text inline-block"
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     textShadow: "0 0 30px rgba(139, 92, 246, 0.5)",
                     transition: { duration: 0.2 }
                   }}
@@ -174,7 +122,7 @@ const Hero = () => {
                   {personalInfo.name.split(" ").slice(1).join(" ")}
                 </motion.span>
               </motion.h1>
-              <motion.h2 
+              <motion.h2
                 initial={{ opacity: 0, y: 20, rotateX: -20 }}
                 animate={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
@@ -214,12 +162,12 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20, rotateY: -90 }}
                   animate={{ opacity: 1, y: 0, rotateY: 0 }}
                   transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.2, 
+                  whileHover={{
+                    scale: 1.2,
                     rotateY: 15,
                     z: 20,
                     boxShadow: "0 10px 30px rgba(139, 92, 246, 0.3)",
-                    transition: { duration: 0.2 } 
+                    transition: { duration: 0.2 }
                   }}
                   whileTap={{ scale: 0.9 }}
                   className="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center text-xl hover:bg-black-200 transition-all duration-300 border border-primary/20"
@@ -241,8 +189,8 @@ const Hero = () => {
             >
               <motion.a
                 href="#contact"
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   rotateX: 5,
                   rotateY: -5,
                   boxShadow: "0 20px 40px rgba(139, 92, 246, 0.4)",
@@ -256,8 +204,8 @@ const Hero = () => {
               </motion.a>
               <motion.a
                 href="#work"
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   rotateX: 5,
                   rotateY: 5,
                   boxShadow: "0 20px 40px rgba(139, 92, 246, 0.2)",
@@ -283,9 +231,9 @@ const Hero = () => {
             className="lg:flex-1 flex justify-center"
             style={{ perspective: 1000 }}
           >
-            <motion.div 
+            <motion.div
               className="relative"
-              style={{ 
+              style={{
                 rotateX,
                 rotateY,
                 transformStyle: "preserve-3d"
@@ -310,50 +258,50 @@ const Hero = () => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
-              
+
               {/* Floating animation for avatar */}
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <motion.div 
+                <motion.div
                   className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-primary/30 to-purple-900/30 flex items-center justify-center p-2"
-                  style={{ 
+                  style={{
                     transformStyle: "preserve-3d",
                     boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.25), 0 0 60px rgba(139, 92, 246, 0.1)"
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     boxShadow: "0 35px 60px -15px rgba(139, 92, 246, 0.4), 0 0 80px rgba(139, 92, 246, 0.2)"
                   }}
                 >
-                  <img 
-                    src="/avatar.jpg" 
+                  <img
+                    src="/avatar.jpg"
                     alt="Le Khanh Duc"
                     className="w-full h-full rounded-full object-cover border-2 border-primary/20"
                     style={{ transform: "translateZ(20px)" }}
                   />
                 </motion.div>
               </motion.div>
-              
+
               {/* 3D Badge */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50, rotateY: -30 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0 }}
                 transition={{ duration: 0.6, delay: 1.5 }}
-                whileHover={{ 
-                  scale: 1.1, 
+                whileHover={{
+                  scale: 1.1,
                   rotateY: 10,
                   boxShadow: "0 15px 30px rgba(139, 92, 246, 0.4)"
                 }}
                 className="absolute -bottom-2 right-0 px-4 py-2 bg-primary rounded-lg shadow-lg"
-                style={{ 
+                style={{
                   transform: "translateZ(40px)",
                   transformStyle: "preserve-3d"
                 }}
               >
                 <span className="font-medium text-sm" style={{ color: '#ffffff' }}>Open to work</span>
               </motion.div>
-              
+
               {/* Floating tech icons around avatar */}
               {['⚡', '☁️', '🚀'].map((icon, i) => (
                 <motion.div

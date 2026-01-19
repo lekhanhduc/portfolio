@@ -9,6 +9,7 @@ import {
 } from "react-icons/si";
 import { FaJava, FaAws, FaShieldAlt, FaKey, FaCloud, FaDatabase, FaRobot, FaCode } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
+import SkillsSphere from "./canvas/SkillsSphere";
 
 const Skills = () => {
   const { theme } = useTheme();
@@ -126,9 +127,14 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+
           <p className="text-secondary text-base uppercase tracking-wider">What I know</p>
           <h2 className={`text-3xl lg:text-4xl font-bold mt-2 ${titleClass}`}>Tech Stack.</h2>
         </motion.div>
+
+        <div className="mb-12">
+          <SkillsSphere />
+        </div>
 
         <div className="space-y-8">
           {skillCategories.map((category, categoryIndex) => (
