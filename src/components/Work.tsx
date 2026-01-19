@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaAws } from "react-icons/fa";
-import { 
+import {
   SiSpring, SiPostgresql, SiApachekafka, SiDocker, SiElasticsearch,
   SiRedis, SiNextdotjs, SiSocketdotio, SiKubernetes, SiAwslambda, SiReact
 } from "react-icons/si";
@@ -18,13 +18,13 @@ const ServerlessIcon = () => (
         <stop offset="100%" stopColor="#FF6600" />
       </linearGradient>
     </defs>
-    <rect x="8" y="20" width="48" height="8" rx="2" fill="url(#serverlessGrad)" opacity="0.9"/>
-    <rect x="8" y="32" width="48" height="8" rx="2" fill="url(#serverlessGrad)" opacity="0.7"/>
-    <rect x="8" y="44" width="48" height="8" rx="2" fill="url(#serverlessGrad)" opacity="0.5"/>
-    <circle cx="50" cy="14" r="8" fill="#232F3E"/>
-    <path d="M47 14l2 2 4-4" stroke="#FF9900" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    <path d="M16 12l4 4-4 4" stroke="#232F3E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M28 12l-4 4 4 4" stroke="#232F3E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="8" y="20" width="48" height="8" rx="2" fill="url(#serverlessGrad)" opacity="0.9" />
+    <rect x="8" y="32" width="48" height="8" rx="2" fill="url(#serverlessGrad)" opacity="0.7" />
+    <rect x="8" y="44" width="48" height="8" rx="2" fill="url(#serverlessGrad)" opacity="0.5" />
+    <circle cx="50" cy="14" r="8" fill="#232F3E" />
+    <path d="M47 14l2 2 4-4" stroke="#FF9900" strokeWidth="2" fill="none" strokeLinecap="round" />
+    <path d="M16 12l4 4-4 4" stroke="#232F3E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M28 12l-4 4 4 4" stroke="#232F3E" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -36,13 +36,13 @@ const ELearningIcon = () => (
         <stop offset="100%" stopColor="#6366F1" />
       </linearGradient>
     </defs>
-    <rect x="6" y="12" width="52" height="32" rx="3" fill="#1E293B"/>
-    <rect x="10" y="16" width="44" height="24" rx="2" fill="url(#elearningGrad)"/>
-    <polygon points="26,22 26,34 38,28" fill="white"/>
-    <rect x="22" y="46" width="20" height="3" rx="1" fill="#475569"/>
-    <rect x="18" y="50" width="28" height="4" rx="2" fill="#334155"/>
-    <circle cx="50" cy="10" r="6" fill="#10B981"/>
-    <path d="M48 10l1.5 1.5 3-3" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+    <rect x="6" y="12" width="52" height="32" rx="3" fill="#1E293B" />
+    <rect x="10" y="16" width="44" height="24" rx="2" fill="url(#elearningGrad)" />
+    <polygon points="26,22 26,34 38,28" fill="white" />
+    <rect x="22" y="46" width="20" height="3" rx="1" fill="#475569" />
+    <rect x="18" y="50" width="28" height="4" rx="2" fill="#334155" />
+    <circle cx="50" cy="10" r="6" fill="#10B981" />
+    <path d="M48 10l1.5 1.5 3-3" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" />
   </svg>
 );
 
@@ -54,15 +54,15 @@ const RentalIcon = () => (
         <stop offset="100%" stopColor="#0891B2" />
       </linearGradient>
     </defs>
-    <path d="M32 8L6 28h8v24h36V28h8L32 8z" fill="url(#rentalGrad)"/>
-    <rect x="26" y="36" width="12" height="16" rx="1" fill="#1E293B"/>
-    <circle cx="35" cy="44" r="1.5" fill="#FCD34D"/>
-    <rect x="14" y="32" width="8" height="8" rx="1" fill="#1E293B"/>
-    <rect x="42" y="32" width="8" height="8" rx="1" fill="#1E293B"/>
-    <rect x="15" y="33" width="6" height="6" fill="#7DD3FC"/>
-    <rect x="43" y="33" width="6" height="6" fill="#7DD3FC"/>
-    <circle cx="52" cy="14" r="7" fill="#F472B6"/>
-    <path d="M49 14h6M52 11v6" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M32 8L6 28h8v24h36V28h8L32 8z" fill="url(#rentalGrad)" />
+    <rect x="26" y="36" width="12" height="16" rx="1" fill="#1E293B" />
+    <circle cx="35" cy="44" r="1.5" fill="#FCD34D" />
+    <rect x="14" y="32" width="8" height="8" rx="1" fill="#1E293B" />
+    <rect x="42" y="32" width="8" height="8" rx="1" fill="#1E293B" />
+    <rect x="15" y="33" width="6" height="6" fill="#7DD3FC" />
+    <rect x="43" y="33" width="6" height="6" fill="#7DD3FC" />
+    <circle cx="52" cy="14" r="7" fill="#F472B6" />
+    <path d="M49 14h6M52 11v6" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
   </svg>
 );
 
@@ -74,18 +74,18 @@ const ExamIcon = () => (
         <stop offset="100%" stopColor="#EA580C" />
       </linearGradient>
     </defs>
-    <rect x="12" y="6" width="40" height="52" rx="3" fill="white" stroke="#E2E8F0" strokeWidth="2"/>
-    <rect x="18" y="14" width="20" height="3" rx="1" fill="url(#examGrad)"/>
-    <rect x="18" y="22" width="28" height="2" rx="1" fill="#CBD5E1"/>
-    <rect x="18" y="28" width="24" height="2" rx="1" fill="#CBD5E1"/>
-    <rect x="18" y="34" width="26" height="2" rx="1" fill="#CBD5E1"/>
-    <circle cx="20" cy="44" r="3" fill="#10B981"/>
-    <path d="M18.5 44l1 1 2-2" stroke="white" strokeWidth="1" fill="none" strokeLinecap="round"/>
-    <rect x="26" y="42" width="16" height="2" rx="1" fill="#CBD5E1"/>
-    <circle cx="20" cy="52" r="3" fill="#10B981"/>
-    <path d="M18.5 52l1 1 2-2" stroke="white" strokeWidth="1" fill="none" strokeLinecap="round"/>
-    <rect x="26" y="50" width="12" height="2" rx="1" fill="#CBD5E1"/>
-    <circle cx="50" cy="50" r="10" fill="url(#examGrad)"/>
+    <rect x="12" y="6" width="40" height="52" rx="3" fill="white" stroke="#E2E8F0" strokeWidth="2" />
+    <rect x="18" y="14" width="20" height="3" rx="1" fill="url(#examGrad)" />
+    <rect x="18" y="22" width="28" height="2" rx="1" fill="#CBD5E1" />
+    <rect x="18" y="28" width="24" height="2" rx="1" fill="#CBD5E1" />
+    <rect x="18" y="34" width="26" height="2" rx="1" fill="#CBD5E1" />
+    <circle cx="20" cy="44" r="3" fill="#10B981" />
+    <path d="M18.5 44l1 1 2-2" stroke="white" strokeWidth="1" fill="none" strokeLinecap="round" />
+    <rect x="26" y="42" width="16" height="2" rx="1" fill="#CBD5E1" />
+    <circle cx="20" cy="52" r="3" fill="#10B981" />
+    <path d="M18.5 52l1 1 2-2" stroke="white" strokeWidth="1" fill="none" strokeLinecap="round" />
+    <rect x="26" y="50" width="12" height="2" rx="1" fill="#CBD5E1" />
+    <circle cx="50" cy="50" r="10" fill="url(#examGrad)" />
     <text x="50" y="54" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">A+</text>
   </svg>
 );
@@ -125,7 +125,7 @@ const projects = [
   {
     title: "FPT-EXAM System",
     description: "Online examination system for FPT University with exam management, auto-grading, proctoring features, and result analytics. Deployed in production.",
-    tags: ["Spring Boot", "Next.js", "PostgreSQL", "Redis", "WebSocket", "PayOS", "AWS"],
+    tags: ["Spring Boot", "Next.js", "PostgreSQL", "Redis", "WebSocket", "AWS"],
     github: "https://github.com/lekhanhduc/fpt-exam-sync-backend",
     demo: "https://www.khaothifudn.org",
     image: "📝",
@@ -134,7 +134,7 @@ const projects = [
 
 const Work = () => {
   const { theme } = useTheme();
-  
+
   // Brand colors and icons for each technology
   const techConfig: Record<string, { icon: JSX.Element; color: string }> = {
     "Spring Boot": { icon: <SiSpring />, color: "text-green-500" },
