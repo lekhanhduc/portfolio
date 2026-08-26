@@ -10,12 +10,12 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(onComplete, 500); // Delay before hiding
+          setTimeout(onComplete, 500); 
           return 100;
         }
         return prev + 2;
@@ -38,7 +38,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       transition={{ duration: 0.5 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0a1a] via-[#1a1a3a] to-[#0a0a1a]"
     >
-      {/* Animated background particles */}
+
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -62,9 +62,8 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
         ))}
       </div>
 
-      {/* Main content */}
       <div className="relative z-10 flex flex-col items-center">
-        {/* Icons animation */}
+
         <div className="flex gap-8 mb-12">
           {icons.map(({ Icon, delay, label }) => (
             <motion.div
@@ -79,7 +78,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
               }}
               className="relative"
             >
-              {/* Glow effect */}
+
               <motion.div
                 animate={{
                   scale: [1, 1.3, 1],
@@ -92,8 +91,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
                 }}
                 className="absolute inset-0 bg-primary/30 rounded-full blur-xl"
               />
-              
-              {/* Icon */}
+
               <motion.div
                 animate={{
                   rotateY: [0, 360],
@@ -112,7 +110,6 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           ))}
         </div>
 
-        {/* Welcome text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -137,7 +134,6 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           </motion.h2>
         </motion.div>
 
-        {/* Website URL */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -160,22 +156,21 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           <span className="text-sm md:text-base">duc.javabuilder.online</span>
         </motion.div>
 
-        {/* Progress bar */}
         <motion.div
           initial={{ opacity: 0, width: 0 }}
           animate={{ opacity: 1, width: "300px" }}
           transition={{ duration: 0.6, delay: 1.4 }}
           className="relative"
         >
-          {/* Background bar */}
+
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
-            {/* Progress fill */}
+
             <motion.div
               className="h-full bg-gradient-to-r from-primary via-purple-500 to-cyan-500 rounded-full relative"
               style={{ width: `${progress}%` }}
               transition={{ duration: 0.3 }}
             >
-              {/* Shimmer effect */}
+
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                 animate={{ x: ["-100%", "200%"] }}
@@ -183,8 +178,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
               />
             </motion.div>
           </div>
-          
-          {/* Progress percentage */}
+
           <motion.div
             className="text-center mt-3 text-primary/80 text-sm font-medium"
             initial={{ opacity: 0 }}
@@ -195,7 +189,6 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
           </motion.div>
         </motion.div>
 
-        {/* Loading text */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -212,7 +205,6 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
         </motion.div>
       </div>
 
-      {/* Corner decorations */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.1, scale: 1 }}

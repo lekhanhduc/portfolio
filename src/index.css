@@ -8,7 +8,7 @@
   --color-black-100: oklch(20.3% 0.039 265);
   --color-black-200: oklch(13.1% 0.046 265);
   --color-white-100: oklch(96.7% 0.007 247);
-  
+
   --spacing-18: 4.5rem;
   --spacing-22: 5.5rem;
 }
@@ -29,7 +29,7 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Light mode */
+
 html.light body {
   background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
   color: #0f172a;
@@ -82,7 +82,7 @@ html.light .border-slate-600\/50 {
   border-color: rgba(148, 163, 184, 0.5);
 }
 
-/* Light mode - Navbar */
+
 html.light nav {
   background-color: rgba(248, 250, 252, 0.9) !important;
 }
@@ -91,7 +91,7 @@ html.light nav p {
   color: #0f172a !important;
 }
 
-/* Light mode - Buttons */
+
 html.light .bg-violet-500 {
   background-color: #8b5cf6;
 }
@@ -104,7 +104,7 @@ html.light .text-violet-500 {
   color: #7c3aed;
 }
 
-/* Light mode - Cards and sections */
+
 html.light section {
   color: #0f172a;
 }
@@ -116,34 +116,34 @@ html.light h4 {
   color: #0f172a;
 }
 
-/* Light mode - Social icons background */
+
 html.light .bg-tertiary {
   background-color: #e2e8f0;
   border-color: rgba(139, 92, 246, 0.2);
 }
 
-/* Light mode - Mobile menu */
+
 html.light .bg-black-200 {
   background-color: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Light mode - Scrollbar */
+
 html.light ::-webkit-scrollbar-track {
   background: #e2e8f0;
 }
 
-/* Light mode - Glow effect */
+
 html.light .glow {
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
 }
 
-/* Light mode - Footer */
+
 html.light footer {
   background-color: #f1f5f9;
 }
 
-/* Light mode - Input fields */
+
 html.light input,
 html.light textarea {
   background-color: #ffffff !important;
@@ -156,28 +156,28 @@ html.light textarea::placeholder {
   color: #94a3b8 !important;
 }
 
-/* Light mode - Skills section */
+
 html.light .text-white {
   color: #1e293b;
 }
 
-/* Light mode - Work section tech tags */
+
 html.light .bg-slate-800\/50 {
   background-color: rgba(226, 232, 240, 0.8);
 }
 
-/* Light mode - Next.js icon (white in dark mode) */
+
 html.light .text-white.text-lg,
 html.light span.text-white {
   color: #1e293b;
 }
 
-/* Light mode - Project cards */
+
 html.light .text-white-100 {
   color: #0f172a;
 }
 
-/* Light mode - Tertiary backgrounds */
+
 html.light .bg-tertiary\/50 {
   background-color: rgba(203, 213, 225, 0.6);
 }
@@ -186,14 +186,14 @@ html.light .bg-tertiary\/30 {
   background-color: rgba(203, 213, 225, 0.4);
 }
 
-/* Light mode - Skill cards specifically */
+
 html.light .card-gradient.px-4 {
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(139, 92, 246, 0.25);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-/* Light mode - Primary button text stays white */
+
 html.light .bg-primary,
 html.light .bg-violet-500,
 html.light .bg-violet-600 {
@@ -205,7 +205,7 @@ html.light .bg-violet-500 span {
   color: #ffffff !important;
 }
 
-/* Light mode - Animated blobs */
+
 html.light .bg-primary\/20 {
   background-color: rgba(139, 92, 246, 0.15);
 }
@@ -218,37 +218,37 @@ html.light .bg-cyan-500\/10 {
   background-color: rgba(6, 182, 212, 0.08);
 }
 
-/* Light mode - Primary/20 backgrounds */
+
 html.light .bg-primary\/10 {
   background-color: rgba(139, 92, 246, 0.1);
 }
 
-/* Light mode - Border colors */
+
 html.light .border-primary\/10 {
   border-color: rgba(139, 92, 246, 0.2);
 }
 
-/* Light mode - Text primary stays purple */
+
 html.light .text-primary {
   color: #7c3aed;
 }
 
-/* Light mode - Open to work badge */
+
 html.light .bg-primary {
   background-color: #8b5cf6;
 }
 
-/* Light mode - Avatar border */
+
 html.light .border-primary\/20 {
   border-color: rgba(139, 92, 246, 0.3);
 }
 
-/* Light mode - Footer border */
+
 html.light .border-t {
   border-color: rgba(139, 92, 246, 0.2);
 }
 
-/* Light mode - Shadow adjustments */
+
 html.light .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 }
@@ -257,12 +257,12 @@ html.light .shadow-primary\/20 {
   --tw-shadow-color: rgba(139, 92, 246, 0.15);
 }
 
-/* Light mode - Kafka icon (gray in dark) */
+
 html.light .text-gray-300 {
   color: #374151;
 }
 
-/* Light mode - TikTok and GitHub icons that are white in dark mode */
+
 html.light .text-white:not(.bg-violet-500 *):not(.bg-primary *) {
   color: #1e293b;
 }
@@ -300,7 +300,7 @@ html.light .text-white:not(.bg-violet-500 *):not(.bg-primary *) {
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
 }
 
-/* Skill items */
+
 .skill-item {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(30, 27, 75, 0.3) 100%);
   backdrop-filter: blur(10px);

@@ -7,7 +7,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Prevent scrolling while loading
+
     if (isLoading) {
       document.body.style.overflow = "hidden";
     } else {
@@ -22,7 +22,7 @@ function App() {
           <Preloader onComplete={() => setIsLoading(false)} />
         )}
       </AnimatePresence>
-      
+
       {!isLoading && (
         <div className="relative z-0">
           <Navbar />

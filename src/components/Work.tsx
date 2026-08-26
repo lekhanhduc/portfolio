@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 
 import { FaGithub, FaExternalLinkAlt, FaAws } from "react-icons/fa";
 import {
-  SiSpring, SiPostgresql, SiApachekafka, SiDocker, SiElasticsearch,
-  SiRedis, SiNextdotjs, SiSocketdotio, SiKubernetes, SiAwslambda, SiReact
+  SiSpring, SiPostgresql, SiMysql, SiApachekafka, SiDocker, SiElasticsearch,
+  SiRedis, SiNextdotjs, SiSocketdotio, SiKubernetes, SiAwslambda, SiReact,
+  SiAmazonec2
 } from "react-icons/si";
 import { TbApi, TbCreditCard } from "react-icons/tb";
 import { BsStars, BsDatabase } from "react-icons/bs";
 import { useTheme } from "../context/ThemeContext";
 import type { JSX } from "react";
 
-// Custom SVG Icons for projects
 const ServerlessIcon = () => (
   <svg viewBox="0 0 64 64" className="w-16 h-16">
     <defs>
@@ -93,6 +93,7 @@ const ExamIcon = () => (
 
 const projectIcons: Record<string, JSX.Element> = {
   "Serverless Blog Platform": <ServerlessIcon />,
+  "E-Learning Platform (Java Builder)": <ELearningIcon />,
   "E-Learning Platform": <ELearningIcon />,
   "Rental Platform & Roommate Finder": <RentalIcon />,
   "FPT-EXAM System": <ExamIcon />,
@@ -100,20 +101,20 @@ const projectIcons: Record<string, JSX.Element> = {
 
 const projects = [
   {
+    title: "E-Learning Platform (Java Builder)",
+    description: "Full-featured online learning platform with course management, video streaming, payment integration, and real-time notifications. Deployed in production.",
+    tags: ["Spring Boot", "Next.js", "RDS MySQL", "Redis", "WebSocket", "PayOS", "EC2", "S3", "CloudFront", "Secrets Manager"],
+    github: "https://github.com/lekhanhduc",
+    demo: "https://javabuilder.online",
+    image: "🎓",
+  },
+  {
     title: "Serverless Blog Platform",
     description: "Modern serverless blog platform on AWS with microservices architecture. Features user auth via Cognito, Markdown support, comments, and email notifications.",
     tags: ["AWS Lambda", "API Gateway", "S3", "CloudFront", "DynamoDB", "CloudWatch", "Secrets Manager", "SNS", "Cognito", "Brevo", "React"],
     github: "https://github.com/lekhanhduc/serverless-blog-platform",
     demo: "https://blog.javabuilder.online",
     image: "📰",
-  },
-  {
-    title: "E-Learning Platform",
-    description: "Full-featured online learning platform with course management, video streaming, payment integration, and real-time notifications. Deployed in production.",
-    tags: ["Spring Boot", "Next.js", "PostgreSQL", "Redis", "WebSocket", "PayOS", "AWS"],
-    github: "https://github.com/lekhanhduc",
-    demo: "https://javabuilder.online",
-    image: "🎓",
   },
   {
     title: "Rental Platform & Roommate Finder",
@@ -136,11 +137,12 @@ const projects = [
 const Work = () => {
   const { theme } = useTheme();
 
-  // Brand colors and icons for each technology
   const techConfig: Record<string, { icon: JSX.Element; color: string }> = {
     "Spring Boot": { icon: <SiSpring />, color: "text-green-500" },
     "Next.js": { icon: <SiNextdotjs />, color: theme === "dark" ? "text-white" : "text-gray-800" },
     "PostgreSQL": { icon: <SiPostgresql />, color: "text-blue-400" },
+    "RDS MySQL": { icon: <SiMysql />, color: "text-orange-400" },
+    "MySQL": { icon: <SiMysql />, color: "text-orange-400" },
     "Kafka": { icon: <SiApachekafka />, color: theme === "dark" ? "text-gray-300" : "text-gray-700" },
     "Docker": { icon: <SiDocker />, color: "text-sky-400" },
     "gRPC": { icon: <TbApi />, color: "text-teal-400" },
@@ -151,6 +153,7 @@ const Work = () => {
     "WebSocket": { icon: <SiSocketdotio />, color: theme === "dark" ? "text-gray-300" : "text-gray-700" },
     "PayOS": { icon: <TbCreditCard />, color: "text-green-400" },
     "AWS": { icon: <FaAws />, color: "text-orange-400" },
+    "EC2": { icon: <SiAmazonec2 />, color: "text-orange-400" },
     "GKE": { icon: <SiKubernetes />, color: "text-blue-500" },
     "AWS Lambda": { icon: <SiAwslambda />, color: "text-orange-500" },
     "API Gateway": { icon: <FaAws />, color: "text-purple-500" },
@@ -169,20 +172,20 @@ const Work = () => {
   const tagTextClass = theme === "dark" ? "text-slate-300" : "text-slate-600";
 
   return (
-    <section id="work" className="py-20 relative flex justify-center">
-      <div className="w-full max-w-6xl px-8 sm:px-12 lg:px-16">
+    <section id="work" className="py-10 sm:py-14 relative flex justify-center">
+      <div className="w-full max-w-6xl px-4 sm:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10"
         >
-          <p className="text-secondary text-xs uppercase tracking-widest mb-2">MY WORK</p>
+          <p className="text-secondary text-xs uppercase tracking-widest mb-1.5">MY WORK</p>
           <h2 className={`text-3xl lg:text-4xl font-bold ${titleClass}`}>Projects.</h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -244,7 +247,7 @@ const Work = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-10 text-center"
+          className="mt-6 sm:mt-8 text-center"
         >
           <a
             href="https://github.com/lekhanhduc"

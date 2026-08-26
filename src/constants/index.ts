@@ -16,9 +16,9 @@ export const personalInfo = {
 
 export const socials = [
   { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100028989917543", icon: "facebook" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/lekhanhduc212003/", icon: "linkedin" },
   { name: "Instagram", url: "https://instagram.com/02_10_003/", icon: "instagram" },
-  { name: "TikTok", url: "https://tiktok.com/@lekhanhduc212", icon: "tiktok" },
-  { name: "YouTube", url: "https://youtube.com/@backendjava212", icon: "youtube" },
+  { name: "YouTube", url: "https://www.youtube.com/@javabuilder.online", icon: "youtube" },
   { name: "Email", url: "mailto:lekhanhduc212003@gmail.com", icon: "email" },
   { name: "GitHub", url: "https://github.com/lekhanhduc", icon: "github" },
 ];

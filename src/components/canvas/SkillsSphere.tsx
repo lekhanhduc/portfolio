@@ -13,8 +13,6 @@ import {
 } from "react-icons/si";
 import { FaJava, FaAws } from "react-icons/fa";
 
-
-
 const Tag = ({ position, icon, name }: { position: [number, number, number], icon: React.ReactNode, name: string }) => {
     const [hovered, setHovered] = useState(false);
     const { theme } = useTheme();
@@ -44,16 +42,16 @@ const Tag = ({ position, icon, name }: { position: [number, number, number], ico
 }
 
 const Cloud = ({ radius = 20, skills }: { radius?: number, skills: any[] }) => {
-    // Create a spherical distribution of points
+
     const words = useMemo(() => {
         const temp = [];
-        const phi = Math.PI * (3 - Math.sqrt(5)); // golden angle in radians
+        const phi = Math.PI * (3 - Math.sqrt(5)); 
 
         for (let i = 0; i < skills.length; i++) {
-            const y = 1 - (i / (skills.length - 1)) * 2; // y goes from 1 to -1
-            const r = Math.sqrt(1 - y * y); // radius at y
+            const y = 1 - (i / (skills.length - 1)) * 2; 
+            const r = Math.sqrt(1 - y * y); 
 
-            const theta = phi * i; // golden angle increment
+            const theta = phi * i; 
 
             const x = Math.cos(theta) * r;
             const z = Math.sin(theta) * r;
@@ -88,7 +86,7 @@ const Cloud = ({ radius = 20, skills }: { radius?: number, skills: any[] }) => {
 
 const SkillsSphere = () => {
     const { theme } = useTheme();
-    const fogColor = theme === "dark" ? "#202025" : "#f8fafc"; // Using slate-50 for light mode background match
+    const fogColor = theme === "dark" ? "#202025" : "#f8fafc"; 
 
     const skills = useMemo(() => [
         { name: "Java", icon: <FaJava color="#ea580c" /> },

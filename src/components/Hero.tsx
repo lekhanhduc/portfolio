@@ -1,16 +1,14 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { FaFacebook, FaInstagram, FaTiktok, FaYoutube, FaGithub, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube, FaGithub, FaEnvelope } from "react-icons/fa";
 import { personalInfo, socials } from "../constants";
 import { useTheme } from "../context/ThemeContext";
 import type { JSX } from "react";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import HeroBackground from "./canvas/HeroBackground";
 
 const Hero = () => {
   const { theme } = useTheme();
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Typing animation state
   const roles = ["Backend Developer", "Java Spring Boot Developer", "AWS Cloud Engineer", "Microservices Architect"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -22,24 +20,24 @@ const Hero = () => {
 
     const handleTyping = () => {
       if (!isDeleting) {
-        // Typing
+
         if (displayedText.length < currentRole.length) {
           setDisplayedText(currentRole.substring(0, displayedText.length + 1));
-          setTypingSpeed(100 + Math.random() * 100); // Variable speed for natural feel
+          setTypingSpeed(100 + Math.random() * 100); 
         } else {
-          // Pause at end before deleting
+
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Deleting
+
         if (displayedText.length > 0) {
           setDisplayedText(currentRole.substring(0, displayedText.length - 1));
           setTypingSpeed(50);
         } else {
-          // Move to next role
+
           setIsDeleting(false);
           setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-          setTypingSpeed(500); // Pause before typing next
+          setTypingSpeed(500); 
         }
       }
     };
@@ -48,31 +46,10 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, currentRoleIndex, typingSpeed, roles]);
 
-  // 3D Tilt effect for avatar
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(mouseY, [-300, 300], [15, -15]), { stiffness: 100, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-300, 300], [-15, 15]), { stiffness: 100, damping: 30 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    mouseX.set(e.clientX - centerX);
-    mouseY.set(e.clientY - centerY);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
   const socialIcons: Record<string, { icon: JSX.Element; color: string }> = {
     facebook: { icon: <FaFacebook />, color: "text-blue-500" },
+    linkedin: { icon: <FaLinkedin />, color: "text-blue-400" },
     instagram: { icon: <FaInstagram />, color: "text-pink-500" },
-    tiktok: { icon: <FaTiktok />, color: theme === "dark" ? "text-white" : "text-gray-800" },
     youtube: { icon: <FaYoutube />, color: "text-red-500" },
     github: { icon: <FaGithub />, color: theme === "dark" ? "text-white" : "text-gray-800" },
     email: { icon: <FaEnvelope />, color: "text-yellow-400" },
@@ -82,9 +59,9 @@ const Hero = () => {
     <section className="relative w-full min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
       <HeroBackground />
 
-      <div className="max-w-6xl w-full mx-auto px-8 sm:px-12 lg:px-16 py-20 relative z-10">
+      <div className="max-w-6xl w-full mx-auto px-4 sm:px-8 lg:px-16 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          {/* Left content with 3D text effect */}
+
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:flex-1">
             <motion.div
               initial={{ opacity: 0, x: -100, rotateY: -30 }}
@@ -220,119 +197,72 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right content - 3D Avatar */}
           <motion.div
-            ref={containerRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            initial={{ opacity: 0, scale: 0.5, rotateY: 45 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 1, delay: 0.5, type: "spring", stiffness: 100 }}
-            className="lg:flex-1 flex justify-center"
-            style={{ perspective: 1000 }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="lg:flex-1 flex justify-center items-center"
           >
-            <motion.div
-              className="relative"
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d"
-              }}
-            >
-              {/* 3D Ring effects */}
-              <motion.div
-                className="absolute inset-0 w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border-2 border-primary/30"
-                style={{ transform: "translateZ(-40px)" }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div
-                className="absolute inset-0 w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border border-purple-500/20"
-                style={{ transform: "translateZ(-60px) scale(1.1)" }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div
-                className="absolute inset-0 w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border border-cyan-500/10"
-                style={{ transform: "translateZ(-80px) scale(1.2)" }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              />
+            <div className="relative flex items-center justify-center">
 
-              {/* Floating animation for avatar */}
+              <div className="absolute w-[290px] h-[290px] sm:w-[330px] sm:h-[330px] lg:w-[370px] lg:h-[370px] rounded-full border border-violet-500/20 animate-spin [animation-duration:30s] pointer-events-none" />
+              <div className="absolute w-[320px] h-[320px] sm:w-[360px] sm:h-[360px] lg:w-[410px] lg:h-[410px] rounded-full border border-cyan-500/15 animate-spin [animation-duration:45s] [animation-direction:reverse] pointer-events-none" />
+
               <motion.div
-                animate={{ y: [0, -15, 0] }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="relative z-10"
               >
-                <motion.div
-                  className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-primary/30 to-purple-900/30 flex items-center justify-center p-2"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.25), 0 0 60px rgba(139, 92, 246, 0.1)"
-                  }}
-                  whileHover={{
-                    boxShadow: "0 35px 60px -15px rgba(139, 92, 246, 0.4), 0 0 80px rgba(139, 92, 246, 0.2)"
-                  }}
-                >
-                  <img
-                    src="/avatar.jpg"
-                    alt="Le Khanh Duc"
-                    className="w-full h-full rounded-full object-cover border-2 border-primary/20"
-                    style={{ transform: "translateZ(20px)" }}
-                  />
-                </motion.div>
+
+                <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-[3px] bg-gradient-to-tr from-violet-500 via-fuchsia-500 to-cyan-400 shadow-xl">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-[#fafafa] flex items-center justify-center">
+                    <img
+                      src="/avatar.jpg"
+                      alt="Le Khanh Duc"
+                      className="w-full h-full object-contain p-1.5 select-none"
+                    />
+                  </div>
+                </div>
               </motion.div>
 
-              {/* 3D Badge */}
               <motion.div
-                initial={{ opacity: 0, x: 50, rotateY: -30 }}
-                animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                transition={{ duration: 0.6, delay: 1.5 }}
-                whileHover={{
-                  scale: 1.1,
-                  rotateY: 10,
-                  boxShadow: "0 15px 30px rgba(139, 92, 246, 0.4)"
-                }}
-                className="absolute -bottom-2 right-0 px-4 py-2 bg-primary rounded-lg shadow-lg"
-                style={{
-                  transform: "translateZ(40px)",
-                  transformStyle: "preserve-3d"
-                }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                whileHover={{ scale: 1.05 }}
+                className="absolute bottom-1 right-2 z-20 px-3.5 py-1.5 bg-violet-600/95 backdrop-blur-md rounded-full shadow-lg border border-violet-400/30 flex items-center gap-2"
               >
-                <span className="font-medium text-sm" style={{ color: '#ffffff' }}>Open to work</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="font-semibold text-xs sm:text-sm text-white tracking-wide">Open to work</span>
               </motion.div>
 
-              {/* Floating tech icons around avatar */}
-              {['⚡', '☁️', '🚀'].map((icon, i) => (
+              {[
+                { icon: '⚡', pos: '-left-4 top-1/2 -translate-y-1/2' },
+                { icon: '☁️', pos: 'left-1/2 -top-4 -translate-x-1/2' },
+                { icon: '🚀', pos: '-right-4 top-1/2 -translate-y-1/2' },
+              ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className="absolute text-2xl"
-                  style={{
-                    left: i === 0 ? '-20px' : i === 1 ? '50%' : 'auto',
-                    right: i === 2 ? '-20px' : 'auto',
-                    top: i === 1 ? '-20px' : '50%',
-                    transform: `translateZ(${30 + i * 10}px)`,
-                  }}
+                  className={`absolute text-2xl z-20 pointer-events-none ${item.pos}`}
                   animate={{
-                    y: [0, -10, 0],
-                    rotate: [0, 10, -10, 0],
+                    y: [0, -8, 0],
+                    rotate: [0, 6, -6, 0],
                   }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: i * 0.5,
+                    delay: i * 0.4,
                   }}
                 >
-                  {icon}
+                  {item.icon}
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll down arrow with 3D effect */}
       <div className="absolute bottom-8 w-full flex justify-center">
         <motion.a
           href="#about"

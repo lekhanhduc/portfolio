@@ -1,7 +1,7 @@
 import { useState, type JSX } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaUser, FaCode, FaBriefcase, FaEnvelope, FaSun, FaMoon, FaFacebook, FaGithub } from "react-icons/fa";
+import { FaUser, FaCode, FaBriefcase, FaEnvelope, FaSun, FaMoon, FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import { navLinks } from "../constants";
 import { useTheme } from "../context/ThemeContext";
 
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex justify-center items-center py-4 fixed top-0 z-20 bg-black-100/80 backdrop-blur-sm">
-      <div className="w-full max-w-6xl flex justify-between items-center px-8 sm:px-12 lg:px-16">
+      <div className="w-full max-w-6xl flex justify-between items-center px-4 sm:px-8 lg:px-16">
         <a
           href="#"
           className="flex items-center gap-3"
@@ -29,7 +29,7 @@ const Navbar = () => {
           }}
         >
           <div className="relative w-10 h-10">
-            {/* Hexagon with gradient border */}
+
             <svg viewBox="0 0 100 100" className="w-full h-full">
               <defs>
                 <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -38,18 +38,18 @@ const Navbar = () => {
                   <stop offset="100%" stopColor="#3b82f6" />
                 </linearGradient>
               </defs>
-              <polygon 
-                points="50,2 95,25 95,75 50,98 5,75 5,25" 
-                fill="none" 
-                stroke="url(#hexGradient)" 
+              <polygon
+                points="50,2 95,25 95,75 50,98 5,75 5,25"
+                fill="none"
+                stroke="url(#hexGradient)"
                 strokeWidth="4"
               />
-              <text 
-                x="50" 
-                y="62" 
-                textAnchor="middle" 
-                fill="url(#hexGradient)" 
-                fontSize="42" 
+              <text
+                x="50"
+                y="62"
+                textAnchor="middle"
+                fill="url(#hexGradient)"
+                fontSize="42"
                 fontWeight="bold"
                 fontFamily="Arial, sans-serif"
               >
@@ -58,17 +58,16 @@ const Navbar = () => {
             </svg>
           </div>
           <p className="text-white text-base font-bold cursor-pointer">
-            Le Khanh Duc
+            Le Khanh Duc <span className="text-secondary text-xs hidden sm:inline">| Backend Developer</span>
           </p>
         </a>
 
-        <ul className="list-none hidden md:flex flex-row gap-8 items-center">
+        <ul className="list-none hidden md:flex flex-row gap-6 items-center">
           {navLinks.map((link) => (
             <li
               key={link.id}
-              className={`${
-                active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-sm font-medium cursor-pointer transition-colors`}
+              className={`${active === link.title ? "text-white" : "text-secondary"
+                } hover:text-white text-sm font-medium cursor-pointer transition-colors`}
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`} className="flex items-center gap-2">
@@ -86,6 +85,17 @@ const Navbar = () => {
               title="Facebook"
             >
               <FaFacebook className="text-blue-500" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/lekhanhduc212003/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-tertiary flex items-center justify-center text-lg hover:bg-primary/20 transition-all border border-primary/20"
+              title="LinkedIn"
+            >
+              <FaLinkedin className="text-blue-400" />
             </a>
           </li>
           <li>
@@ -115,7 +125,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-2 sm:gap-3">
           <button
             onClick={toggleTheme}
             className="w-9 h-9 rounded-full bg-tertiary flex items-center justify-center text-lg hover:bg-primary/20 transition-all border border-primary/20 cursor-pointer"
@@ -131,14 +141,25 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full bg-tertiary flex items-center justify-center text-lg hover:bg-primary/20 transition-all border border-primary/20"
+            title="Facebook"
           >
             <FaFacebook className="text-blue-500" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lekhanhduc212003/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-9 h-9 rounded-full bg-tertiary flex items-center justify-center text-lg hover:bg-primary/20 transition-all border border-primary/20"
+            title="LinkedIn"
+          >
+            <FaLinkedin className="text-blue-400" />
           </a>
           <a
             href="https://github.com/lekhanhduc"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full bg-tertiary flex items-center justify-center text-lg hover:bg-primary/20 transition-all border border-primary/20"
+            title="GitHub"
           >
             <FaGithub className={theme === "dark" ? "text-white" : "text-gray-800"} />
           </a>
@@ -149,17 +170,15 @@ const Navbar = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: toggle ? 1 : 0, scale: toggle ? 1 : 0.8 }}
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-5 bg-black-200 absolute top-16 right-4 min-w-[140px] z-10 rounded-xl border border-primary/20`}
+            className={`${!toggle ? "hidden" : "flex"
+              } p-5 bg-black-200 absolute top-16 right-4 min-w-[140px] z-10 rounded-xl border border-primary/20`}
           >
             <ul className="list-none flex flex-col gap-3">
               {navLinks.map((link) => (
                 <li
                   key={link.id}
-                  className={`${
-                    active === link.title ? "text-white" : "text-secondary"
-                  } text-sm font-medium cursor-pointer`}
+                  className={`${active === link.title ? "text-white" : "text-secondary"
+                    } text-sm font-medium cursor-pointer`}
                   onClick={() => {
                     setToggle(false);
                     setActive(link.title);

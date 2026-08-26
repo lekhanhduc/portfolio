@@ -4,7 +4,6 @@ import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaCheckCircle, FaTimesCircle 
 import { useTheme } from "../context/ThemeContext";
 import emailjs from "@emailjs/browser";
 
-// Toast notification component
 const Toast = ({ message, type, onClose }: { message: string; type: "success" | "error"; onClose: () => void }) => {
   return (
     <motion.div
@@ -39,7 +38,7 @@ const Contact = () => {
     message: "",
     type: "success"
   });
-  
+
   const titleClass = theme === "dark" ? "text-white" : "text-slate-800";
   const labelClass = theme === "dark" ? "text-white-100" : "text-slate-700";
   const inputBgClass = theme === "dark" ? "bg-tertiary/30" : "bg-white";
@@ -83,8 +82,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative flex justify-center">
-      {/* Toast Notification */}
+    <section id="contact" className="py-10 sm:py-14 relative flex justify-center">
+
       <AnimatePresence>
         {toast.show && (
           <Toast 
@@ -95,15 +94,15 @@ const Contact = () => {
         )}
       </AnimatePresence>
 
-      <div className="w-full max-w-6xl px-8 sm:px-12 lg:px-16">
+      <div className="w-full max-w-6xl px-4 sm:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10"
         >
-          <p className="text-secondary text-xs uppercase tracking-widest mb-2">GET IN TOUCH</p>
+          <p className="text-secondary text-xs uppercase tracking-widest mb-1.5">GET IN TOUCH</p>
           <h2 className={`text-3xl lg:text-4xl font-bold ${titleClass}`}>Contact.</h2>
         </motion.div>
 
