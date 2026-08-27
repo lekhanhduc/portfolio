@@ -10,47 +10,50 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const img1 = new Image();
+    img1.src = "/avatar.jpg";
+    const img2 = new Image();
+    img2.src = "/avatar1.jpg";
 
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(onComplete, 500); 
+          setTimeout(onComplete, 400);
           return 100;
         }
-        return prev + 2;
+        return prev + 4;
       });
-    }, 30);
+    }, 25);
 
     return () => clearInterval(interval);
   }, [onComplete]);
 
   const icons = [
     { Icon: FaCode, delay: 0, label: "Code" },
-    { Icon: FaUser, delay: 0.2, label: "Developer" },
-    { Icon: FaGithub, delay: 0.4, label: "Projects" },
+    { Icon: FaUser, delay: 0.15, label: "Developer" },
+    { Icon: FaGithub, delay: 0.3, label: "Projects" },
   ];
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0a1a] via-[#1a1a3a] to-[#0a0a1a]"
+      exit={{ opacity: 0, scale: 0.98 }}
+      transition={{ duration: 0.4 }}
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-[#0a0604] via-[#140c06] to-[#0a0604]"
     >
-
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-primary/30 rounded-full"
+            className="absolute w-1 h-1 bg-orange-500/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
               y: [0, -30, 0],
-              opacity: [0.2, 0.5, 0.2],
+              opacity: [0.2, 0.6, 0.2],
               scale: [1, 1.5, 1],
             }}
             transition={{
@@ -63,160 +66,80 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
-
-        <div className="flex gap-8 mb-12">
+        <div className="flex gap-6 mb-8">
           {icons.map(({ Icon, delay, label }) => (
             <motion.div
               key={label}
-              initial={{ opacity: 0, y: 50, scale: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                duration: 0.6,
+                duration: 0.5,
                 delay: delay,
                 type: "spring",
                 stiffness: 200,
               }}
               className="relative"
             >
-
               <motion.div
                 animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.3, 0.6, 0.3],
+                  scale: [1, 1.25, 1],
+                  opacity: [0.2, 0.5, 0.2],
                 }}
                 transition={{
                   duration: 2,
                   repeat: Infinity,
                   delay: delay,
                 }}
-                className="absolute inset-0 bg-primary/30 rounded-full blur-xl"
+                className="absolute inset-0 bg-orange-500/25 rounded-lg blur-xl"
               />
 
-              <motion.div
-                animate={{
-                  rotateY: [0, 360],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: delay,
-                }}
-                className="relative w-20 h-20 flex items-center justify-center bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-full border-2 border-primary/30"
-              >
-                <Icon className="text-3xl text-primary" />
-              </motion.div>
+              <div className="relative w-14 h-14 flex items-center justify-center bg-gradient-to-br from-orange-500/20 to-amber-500/10 rounded-lg border border-orange-500/30 shadow-lg shadow-orange-500/10">
+                <Icon className="text-2xl text-orange-500" />
+              </div>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mb-8"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mb-6"
         >
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold text-white mb-3"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1.5">
             Welcome To My
-          </motion.h1>
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-purple-500 to-cyan-500 bg-clip-text text-transparent"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1 }}
-          >
+          </h1>
+          <h2 className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
             Portfolio Website
-          </motion.h2>
+          </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="flex items-center gap-2 text-primary/70 mb-12"
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-            />
-          </svg>
-          <span className="text-sm md:text-base">duc.javabuilder.online</span>
-        </motion.div>
-
+        {/* Progress Bar */}
         <motion.div
           initial={{ opacity: 0, width: 0 }}
-          animate={{ opacity: 1, width: "300px" }}
-          transition={{ duration: 0.6, delay: 1.4 }}
+          animate={{ opacity: 1, width: "240px" }}
+          transition={{ duration: 0.5, delay: 0.6 }}
           className="relative"
         >
-
-          <div className="h-1.5 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
-
+          <div className="h-1 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
             <motion.div
-              className="h-full bg-gradient-to-r from-primary via-purple-500 to-cyan-500 rounded-full relative"
+              className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full relative"
               style={{ width: `${progress}%` }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             >
-
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
                 animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
               />
             </motion.div>
           </div>
 
-          <motion.div
-            className="text-center mt-3 text-primary/80 text-sm font-medium"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
-          >
+          <div className="text-center mt-2.5 text-orange-400/90 text-xs font-mono font-medium">
             {progress}%
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.8 }}
-          className="mt-6 flex items-center gap-2 text-secondary text-sm"
-        >
-          <span>Loading experience</span>
-          <motion.span
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            ...
-          </motion.span>
+          </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="absolute top-0 left-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl"
-      />
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.7 }}
-        className="absolute bottom-0 right-0 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"
-      />
     </motion.div>
   );
 };

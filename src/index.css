@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: oklch(58.5% 0.233 277);
-  --color-primary-dark: oklch(54.1% 0.245 276);
+  --color-primary: #f97316;
+  --color-primary-dark: #ea580c;
   --color-secondary: oklch(70.4% 0.04 256);
   --color-tertiary: oklch(24.3% 0.065 277);
   --color-black-100: oklch(20.3% 0.039 265);
@@ -29,7 +29,6 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-
 html.light body {
   background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
   color: #0f172a;
@@ -37,8 +36,8 @@ html.light body {
 
 html.light .card-gradient {
   background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(139, 92, 246, 0.25);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 html.light .text-secondary {
@@ -63,11 +62,11 @@ html.light .bg-black-200 {
 }
 
 html.light .border-primary\/20 {
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 html.light .hero-gradient {
-  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
 }
 
 html.light .bg-slate-800\/50 {
@@ -82,7 +81,6 @@ html.light .border-slate-600\/50 {
   border-color: rgba(148, 163, 184, 0.5);
 }
 
-
 html.light nav {
   background-color: rgba(248, 250, 252, 0.9) !important;
 }
@@ -91,19 +89,17 @@ html.light nav p {
   color: #0f172a !important;
 }
 
-
-html.light .bg-violet-500 {
-  background-color: #8b5cf6;
+html.light .bg-orange-500 {
+  background-color: #f97316;
 }
 
-html.light .border-violet-500 {
-  border-color: #8b5cf6;
+html.light .border-orange-500 {
+  border-color: #f97316;
 }
 
-html.light .text-violet-500 {
-  color: #7c3aed;
+html.light .text-orange-500 {
+  color: #ea580c;
 }
-
 
 html.light section {
   color: #0f172a;
@@ -116,38 +112,32 @@ html.light h4 {
   color: #0f172a;
 }
 
-
 html.light .bg-tertiary {
   background-color: #e2e8f0;
-  border-color: rgba(139, 92, 246, 0.2);
+  border-color: rgba(249, 115, 22, 0.2);
 }
-
 
 html.light .bg-black-200 {
   background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-
 
 html.light ::-webkit-scrollbar-track {
   background: #e2e8f0;
 }
 
-
 html.light .glow {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.15);
 }
-
 
 html.light footer {
   background-color: #f1f5f9;
 }
 
-
 html.light input,
 html.light textarea {
   background-color: #ffffff !important;
-  border-color: rgba(139, 92, 246, 0.3) !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
   color: #0f172a !important;
 }
 
@@ -156,27 +146,22 @@ html.light textarea::placeholder {
   color: #94a3b8 !important;
 }
 
-
 html.light .text-white {
   color: #1e293b;
 }
 
-
 html.light .bg-slate-800\/50 {
   background-color: rgba(226, 232, 240, 0.8);
 }
-
 
 html.light .text-white.text-lg,
 html.light span.text-white {
   color: #1e293b;
 }
 
-
 html.light .text-white-100 {
   color: #0f172a;
 }
-
 
 html.light .bg-tertiary\/50 {
   background-color: rgba(203, 213, 225, 0.6);
@@ -186,84 +171,72 @@ html.light .bg-tertiary\/30 {
   background-color: rgba(203, 213, 225, 0.4);
 }
 
-
 html.light .card-gradient.px-4 {
   background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(139, 92, 246, 0.25);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-
 html.light .bg-primary,
-html.light .bg-violet-500,
-html.light .bg-violet-600 {
+html.light .bg-orange-500,
+html.light .bg-orange-600 {
   color: #ffffff !important;
 }
 
 html.light .bg-primary span,
-html.light .bg-violet-500 span {
+html.light .bg-orange-500 span {
   color: #ffffff !important;
 }
 
-
 html.light .bg-primary\/20 {
-  background-color: rgba(139, 92, 246, 0.15);
+  background-color: rgba(249, 115, 22, 0.15);
 }
 
-html.light .bg-purple-600\/10 {
-  background-color: rgba(147, 51, 234, 0.08);
+html.light .bg-orange-600\/10 {
+  background-color: rgba(234, 88, 12, 0.08);
 }
 
 html.light .bg-cyan-500\/10 {
   background-color: rgba(6, 182, 212, 0.08);
 }
 
-
 html.light .bg-primary\/10 {
-  background-color: rgba(139, 92, 246, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
 }
-
 
 html.light .border-primary\/10 {
-  border-color: rgba(139, 92, 246, 0.2);
+  border-color: rgba(249, 115, 22, 0.2);
 }
-
 
 html.light .text-primary {
-  color: #7c3aed;
+  color: #ea580c;
 }
-
 
 html.light .bg-primary {
-  background-color: #8b5cf6;
+  background-color: #f97316;
 }
-
 
 html.light .border-primary\/20 {
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(249, 115, 22, 0.3);
 }
-
 
 html.light .border-t {
-  border-color: rgba(139, 92, 246, 0.2);
+  border-color: rgba(249, 115, 22, 0.2);
 }
 
-
 html.light .shadow-lg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
 }
 
 html.light .shadow-primary\/20 {
-  --tw-shadow-color: rgba(139, 92, 246, 0.15);
+  --tw-shadow-color: rgba(249, 115, 22, 0.15);
 }
-
 
 html.light .text-gray-300 {
   color: #374151;
 }
 
-
-html.light .text-white:not(.bg-violet-500 *):not(.bg-primary *) {
+html.light .text-white:not(.bg-orange-500 *):not(.bg-primary *) {
   color: #1e293b;
 }
 
@@ -276,43 +249,42 @@ html.light .text-white:not(.bg-violet-500 *):not(.bg-primary *) {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
+  background: #f97316;
   border-radius: 4px;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  background: linear-gradient(90deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero-gradient {
-  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(30, 27, 75, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.04) 0%, rgba(30, 20, 10, 0.25) 100%);
   backdrop-filter: blur(10px);
 }
 
 .glow {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
 }
 
-
 .skill-item {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(30, 27, 75, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.04) 0%, rgba(30, 20, 10, 0.25) 100%);
   backdrop-filter: blur(10px);
 }
 
 html.light .skill-item {
   background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(139, 92, 246, 0.2);
+  border-color: rgba(249, 115, 22, 0.2);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 html.light .skill-item:hover {
-  border-color: rgba(139, 92, 246, 0.4);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
 }

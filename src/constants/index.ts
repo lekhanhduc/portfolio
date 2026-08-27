@@ -27,6 +27,7 @@ export const skills = {
   backend: [
     { name: "Java", icon: "java" },
     { name: "Spring Boot", icon: "spring" },
+    { name: ".NET", icon: "dotnet" },
     { name: "Hibernate", icon: "hibernate" },
   ],
   database: [
@@ -61,4 +62,21 @@ export const currentlyLearning = [
   "System Design",
   "AWS Cloud Architecture",
   "Cloud-native & Distributed Systems",
+];
+
+export const technologies = [
+  { name: "Java", icon: "java", color: "#ea580c" },
+  { name: "Spring Boot", icon: "spring", color: "#22c55e" },
+  { name: ".NET", icon: "dotnet", color: "#7c3aed" },
+  { name: "AWS", icon: "aws", color: "#f97316" },
+  { name: "Docker", icon: "docker", color: "#38bdf8" },
+  { name: "Kafka", icon: "kafka", color: "#cbd5e1" },
+  { name: "PostgreSQL", icon: "postgresql", color: "#3b82f6" },
+  { name: "MySQL", icon: "mysql", color: "#f97316" },
+  { name: "Redis", icon: "redis", color: "#ef4444" },
+  { name: "Elasticsearch", icon: "elasticsearch", color: "#eab308" },
+  { name: "Kubernetes", icon: "kubernetes", color: "#3b82f6" },
+  { name: "React", icon: "react", color: "#22d3ee" },
+  { name: "Next.js", icon: "nextjs", color: "#ffffff" },
+  { name: "Git", icon: "git", color: "#f97316" },
 ];
