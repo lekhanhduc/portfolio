@@ -43,11 +43,10 @@ const Skills = () => {
                 <BallCanvas icon={tech.icon} color={tech.color} isLight={isLight} />
               </div>
               <span
-                className={`text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                  isLight
+                className={`text-xs sm:text-sm font-semibold transition-all duration-200 ${isLight
                     ? "text-slate-700 group-hover:text-orange-500"
                     : "text-slate-300 group-hover:text-orange-400"
-                } group-hover:scale-105`}
+                  } group-hover:scale-105`}
               >
                 {tech.name}
               </span>

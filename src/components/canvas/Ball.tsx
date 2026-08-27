@@ -34,7 +34,7 @@ const Ball = ({ icon, color, isLight }: { icon: string; color: string; isLight: 
     <Float speed={2.5} rotationIntensity={1.5} floatIntensity={2}>
       <ambientLight intensity={isLight ? 0.9 : 0.6} />
       <directionalLight position={[0, 0, 0.05]} intensity={isLight ? 1.5 : 1} />
-      
+
       {/* 3D Core Crystal */}
       <mesh scale={2.4}>
         <icosahedronGeometry args={[1, 1]} />
@@ -61,11 +61,10 @@ const Ball = ({ icon, color, isLight }: { icon: string; color: string; isLight: 
       {/* Floating Center Brand Icon */}
       <Html position={[0, 0, 0]} center className="pointer-events-none">
         <div
-          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full border flex items-center justify-center select-none transition-all duration-300 ${
-            isLight
+          className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full border flex items-center justify-center select-none transition-all duration-300 ${isLight
               ? "bg-white/95 border-orange-200 shadow-md shadow-orange-500/10"
               : "bg-[#0b0805]/90 border-white/20 shadow-xl shadow-black/80"
-          }`}
+            }`}
           style={{ color: icon === "nextjs" && isLight ? "#0f172a" : color }}
         >
           {renderedIcon}
@@ -78,8 +77,8 @@ const Ball = ({ icon, color, isLight }: { icon: string; color: string; isLight: 
 export const BallCanvas = ({ icon, color, isLight = false }: { icon: string; color: string; isLight?: boolean }) => {
   return (
     <Canvas
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: true, powerPreference: "low-power" }}
       className="w-24 h-24 sm:w-28 sm:h-28 cursor-grab active:cursor-grabbing"
     >
       <Suspense fallback={null}>

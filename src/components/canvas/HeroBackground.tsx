@@ -6,12 +6,12 @@ import { useTheme } from "../../context/ThemeContext";
 
 const Stars = ({ isDark }: { isDark: boolean }) => {
     const ref = useRef<any>(null);
-    const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
+    const [sphere] = useState(() => random.inSphere(new Float32Array(2400), { radius: 1.2 }));
 
     useFrame((_state, delta) => {
         if (ref.current) {
-            ref.current.rotation.x -= delta / 10;
-            ref.current.rotation.y -= delta / 14;
+            ref.current.rotation.x -= delta / 32;
+            ref.current.rotation.y -= delta / 42;
         }
     });
 
@@ -20,11 +20,11 @@ const Stars = ({ isDark }: { isDark: boolean }) => {
             <Points ref={ref} positions={sphere} stride={3} frustumCulled>
                 <PointMaterial
                     transparent
-                    color={isDark ? "#fb923c" : "#ea580c"}
-                    size={isDark ? 0.003 : 0.0045}
+                    color={isDark ? "#fed7aa" : "#f97316"}
+                    size={isDark ? 0.002 : 0.0036}
                     sizeAttenuation={true}
                     depthWrite={false}
-                    opacity={isDark ? 0.85 : 0.75}
+                    opacity={isDark ? 0.45 : 0.6}
                 />
             </Points>
         </group>
@@ -33,12 +33,12 @@ const Stars = ({ isDark }: { isDark: boolean }) => {
 
 const CosmicLayer = ({ isDark }: { isDark: boolean }) => {
     const ref = useRef<any>(null);
-    const [sphere] = useState(() => random.inSphere(new Float32Array(1800), { radius: 0.9 }));
+    const [sphere] = useState(() => random.inSphere(new Float32Array(800), { radius: 0.9 }));
 
     useFrame((_state, delta) => {
         if (ref.current) {
-            ref.current.rotation.x += delta / 14;
-            ref.current.rotation.y += delta / 18;
+            ref.current.rotation.x += delta / 45;
+            ref.current.rotation.y += delta / 55;
         }
     });
 
@@ -47,11 +47,11 @@ const CosmicLayer = ({ isDark }: { isDark: boolean }) => {
             <Points ref={ref} positions={sphere} stride={3} frustumCulled>
                 <PointMaterial
                     transparent
-                    color={isDark ? "#f97316" : "#c2410c"}
-                    size={isDark ? 0.004 : 0.006}
+                    color={isDark ? "#fb923c" : "#ea580c"}
+                    size={isDark ? 0.0025 : 0.0045}
                     sizeAttenuation={true}
                     depthWrite={false}
-                    opacity={isDark ? 0.9 : 0.8}
+                    opacity={isDark ? 0.5 : 0.65}
                 />
             </Points>
         </group>

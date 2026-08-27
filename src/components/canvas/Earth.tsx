@@ -93,8 +93,8 @@ export const EarthCanvas = ({ isLight = false }: { isLight?: boolean }) => {
   return (
     <Canvas
       shadows
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: true, powerPreference: "high-performance" }}
       camera={{
         fov: 38,
         near: 0.1,

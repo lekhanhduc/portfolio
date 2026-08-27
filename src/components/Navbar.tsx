@@ -17,8 +17,16 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
+  const isDark = theme === "dark";
+
   return (
-    <nav className="w-full flex justify-center items-center py-3.5 fixed top-0 z-20 bg-black-100/80 backdrop-blur-md border-b border-white/5">
+    <nav
+      className={`w-full flex justify-center items-center py-3.5 fixed top-0 z-20 backdrop-blur-md border-b transition-colors duration-300 ${
+        isDark
+          ? "bg-[#020617]/80 border-white/5"
+          : "bg-white/85 border-slate-200 shadow-sm"
+      }`}
+    >
       <div className="w-full max-w-6xl flex justify-between items-center px-4 sm:px-8 lg:px-16">
         {/* Logo */}
         <a
@@ -56,7 +64,9 @@ const Navbar = () => {
               </text>
             </svg>
           </div>
-          <p className="text-white text-sm sm:text-base font-bold cursor-pointer">
+          <p className={`text-sm sm:text-base font-bold cursor-pointer transition-colors ${
+            isDark ? "text-white" : "text-slate-900"
+          }`}>
             Le Khanh Duc <span className="text-secondary text-xs hidden sm:inline font-normal">| Backend Developer</span>
           </p>
         </a>
@@ -79,10 +89,14 @@ const Navbar = () => {
           <li>
             <button
               onClick={toggleTheme}
-              className="w-8 h-8 rounded-md bg-tertiary flex items-center justify-center text-sm hover:bg-orange-500/20 hover:border-orange-500/40 transition-all border border-primary/20 cursor-pointer"
-              title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              className={`w-8 h-8 rounded-md flex items-center justify-center text-sm transition-all border cursor-pointer ${
+                isDark
+                  ? "bg-slate-800/80 border-white/10 hover:bg-orange-500/20 hover:border-orange-500/40"
+                  : "bg-slate-100 border-slate-200 hover:bg-orange-500/10 hover:border-orange-500/30 shadow-sm"
+              }`}
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
-              {theme === "dark" ? (
+              {isDark ? (
                 <FaSun className="text-yellow-400" />
               ) : (
                 <FaMoon className="text-orange-500" />
@@ -95,24 +109,36 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="w-8 h-8 rounded-md bg-tertiary flex items-center justify-center text-sm hover:bg-orange-500/20 transition-all border border-primary/20 cursor-pointer"
-            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            className={`w-8 h-8 rounded-md flex items-center justify-center text-sm transition-all border cursor-pointer ${
+              isDark
+                ? "bg-slate-800/80 border-white/10 hover:bg-orange-500/20"
+                : "bg-slate-100 border-slate-200 hover:bg-orange-500/10 shadow-sm"
+            }`}
+            title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
-            {theme === "dark" ? (
+            {isDark ? (
               <FaSun className="text-yellow-400" />
             ) : (
               <FaMoon className="text-orange-500" />
             )}
           </button>
-          <button onClick={() => setToggle(!toggle)} className="text-white text-xl p-1 rounded-md hover:bg-white/10">
+          <button
+            onClick={() => setToggle(!toggle)}
+            className={`text-xl p-1 rounded-md transition-colors ${
+              isDark ? "text-white hover:bg-white/10" : "text-slate-800 hover:bg-slate-100"
+            }`}
+          >
             {toggle ? <HiX /> : <HiMenu />}
           </button>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: toggle ? 1 : 0, scale: toggle ? 1 : 0.95 }}
-            className={`${!toggle ? "hidden" : "flex"
-              } p-4 bg-black-200 absolute top-14 right-4 min-w-[150px] z-10 rounded-lg border border-primary/20 shadow-xl`}
+            className={`${!toggle ? "hidden" : "flex"} p-4 absolute top-14 right-4 min-w-[150px] z-10 rounded-lg border shadow-xl ${
+              isDark
+                ? "bg-slate-900/95 border-white/10"
+                : "bg-white border-slate-200 shadow-md"
+            }`}
           >
             <ul className="list-none flex flex-col gap-2.5 w-full">
               {navLinks.map((link) => (
