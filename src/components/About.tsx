@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
-import { personalInfo, currentlyLearning } from "../constants";
+import { personalInfo } from "../constants";
 import {
   FaGraduationCap,
-  FaLightbulb,
   FaRocket,
   FaCode,
   FaServer,
   FaAws,
-  FaCheckCircle,
 } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 
@@ -16,17 +14,10 @@ const About = () => {
   const titleClass = theme === "dark" ? "text-white" : "text-slate-800";
 
   const stats = [
-    { value: "4+", label: "Production Projects", icon: <FaRocket className="text-orange-400" /> },
-    { value: "19+", label: "Microservices Built", icon: <FaServer className="text-cyan-400" /> },
-    { value: "AWS", label: "Cloud-Native Deploy", icon: <FaAws className="text-amber-400" /> },
-    { value: "3.1", label: "GPA Software Eng.", icon: <FaGraduationCap className="text-emerald-400" /> },
-  ];
-
-  const highlights = [
-    "Architect & build scalable RESTful APIs with Spring Boot & .NET",
-    "Design distributed microservices with Kafka, gRPC & Redis caching",
-    "Deploy serverless & cloud-native infrastructures on AWS (Lambda, API Gateway, DynamoDB, Cognito, S3)",
-    "Implement robust authentication with Keycloak, JWT & Spring Security",
+    { value: "4+", label: "Production Projects", icon: <FaRocket className="text-orange-500" /> },
+    { value: "19+", label: "Microservices Built", icon: <FaServer className="text-orange-500" /> },
+    { value: "SAA-C03", label: "AWS Certified Architect", icon: <FaAws className="text-orange-500" /> },
+    { value: "3.1", label: "GPA Software Eng.", icon: <FaGraduationCap className="text-orange-500" /> },
   ];
 
   return (
@@ -78,7 +69,7 @@ const About = () => {
           ))}
         </div>
 
-        {/* Details Grid: Squared & Crisp */}
+        {/* Details Grid: Balanced & Squared */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -109,84 +100,48 @@ const About = () => {
                 </p>
               </div>
             </div>
-
-            <div className="mt-4 pt-3 border-t border-white/5 grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {highlights.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2">
-                  <FaCheckCircle className="text-emerald-400 text-xs mt-0.5 shrink-0" />
-                  <span className="text-secondary text-xs leading-snug">{item}</span>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
-          <div className="lg:col-span-5 flex flex-col justify-between gap-4 h-full">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.08 }}
-              viewport={{ once: true }}
-              className={`flex-1 card-gradient rounded-lg p-4 sm:p-5 border flex flex-col justify-between ${
-                theme === "dark" ? "border-white/10" : "border-slate-200 shadow-sm"
-              }`}
-            >
-              <div>
-                <div className="flex items-center justify-between mb-2.5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-md bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
-                      <FaGraduationCap className="text-base" />
-                    </div>
-                    <div>
-                      <h3 className={`text-sm font-bold ${titleClass}`}>Education</h3>
-                      <p className="text-secondary text-[10px]">Software Engineering</p>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 shrink-0">
-                    GPA: 3.1 / 4.0
-                  </span>
-                </div>
-                <p className={`text-xs font-semibold mt-1 ${titleClass}`}>{personalInfo.university}</p>
-                <p className="text-secondary text-xs mt-1 leading-relaxed">
-                  Solid foundation in Data Structures, Algorithms, OOP, Database Systems & Distributed Architectures.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.16 }}
-              viewport={{ once: true }}
-              className={`flex-1 card-gradient rounded-lg p-4 sm:p-5 border flex flex-col justify-between ${
-                theme === "dark" ? "border-white/10" : "border-slate-200 shadow-sm"
-              }`}
-            >
-              <div>
-                <div className="flex items-center gap-2.5 mb-2.5">
-                  <div className="w-8 h-8 rounded-md bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                    <FaLightbulb className="text-base" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
+            viewport={{ once: true }}
+            className={`lg:col-span-5 h-full card-gradient rounded-lg p-5 border flex flex-col justify-between ${
+              theme === "dark" ? "border-white/10" : "border-slate-200 shadow-sm"
+            }`}
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-md bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0">
+                    <FaGraduationCap className="text-base" />
                   </div>
                   <div>
-                    <h3 className={`text-sm font-bold ${titleClass}`}>Continuous Learning</h3>
-                    <p className="text-secondary text-[10px]">Advancing technical depth</p>
+                    <h3 className={`text-sm font-bold ${titleClass}`}>Education</h3>
+                    <p className="text-secondary text-[10px]">Software Engineering</p>
                   </div>
                 </div>
-                <div className="space-y-1.5 mt-1">
-                  {currentlyLearning.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`px-2.5 py-1.5 rounded-md text-xs flex items-center gap-2 border ${
-                        theme === "dark" ? "bg-slate-900/50 border-white/5 text-slate-300" : "bg-slate-50 border-slate-200 text-slate-700"
-                      }`}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-sm bg-orange-400 shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
+                <span className="text-[10px] font-semibold px-2.5 py-1 rounded-md bg-slate-800 border border-white/10 text-slate-300 shrink-0">
+                  GPA: 3.1 / 4.0
+                </span>
               </div>
-            </motion.div>
-          </div>
+
+              <div className="space-y-2 mt-2">
+                <p className={`text-xs sm:text-sm font-semibold ${titleClass}`}>{personalInfo.university}</p>
+                <p className="text-secondary text-xs leading-relaxed">
+                  Solid academic foundation in Data Structures & Algorithms, Object-Oriented Programming, Database Systems, Computer Networks, and Distributed Software Architectures.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-secondary text-xs">
+              <span className="font-medium">Major: Software Engineering</span>
+              <span className="text-orange-500 font-semibold text-[11px] px-2 py-0.5 rounded bg-orange-500/10 border border-orange-500/20">
+                FPT University
+              </span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

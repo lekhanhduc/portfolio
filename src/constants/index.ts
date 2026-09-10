@@ -1,5 +1,6 @@
 export const navLinks = [
   { id: "about", title: "About" },
+  { id: "certifications", title: "Certifications" },
   { id: "skills", title: "Skills" },
   { id: "work", title: "Work" },
   { id: "contact", title: "Contact" },
@@ -58,10 +59,51 @@ export const skills = {
   ],
 };
 
+export const certifications = [
+  {
+    id: "aws-saa-c03",
+    title: "AWS Certified Solutions Architect – Associate",
+    code: "SAA-C03",
+    issuer: "Amazon Web Services (AWS)",
+    image: "/ssa-c03.webp",
+    badgeUrl: "https://www.credly.com/earner/earned/badge/9f9b7ac4-845d-46cb-a2d5-277e0f0c7baf",
+    badgeId: "9f9b7ac4-845d-46cb-a2d5-277e0f0c7baf",
+    description: "Validates technical expertise in designing secure, resilient, high-performing, and cost-optimized architectures on AWS following the Well-Architected Framework.",
+    skills: [
+      "VPC & Networking",
+      "High Availability & Auto Scaling",
+      "IAM & Cloud Security",
+      "Serverless & Lambda",
+      "RDS & DynamoDB",
+      "S3 & CloudFront",
+      "Decoupled Architecture (SQS/SNS)",
+      "Cost Optimization",
+    ],
+    domains: [
+      {
+        title: "Design Secure Architectures",
+        details: "IAM least-privilege, KMS encryption, VPC security groups, Network ACLs, AWS WAF & Secrets Manager.",
+      },
+      {
+        title: "Design Resilient Architectures",
+        details: "Multi-AZ high availability, Auto Scaling Groups, SQS/SNS decoupling, Route 53 failover & disaster recovery.",
+      },
+      {
+        title: "Design High-Performing Architectures",
+        details: "Optimized EC2, ECS, Lambda serverless compute, Aurora/RDS caching with ElastiCache & CloudFront CDN.",
+      },
+      {
+        title: "Design Cost-Optimized Architectures",
+        details: "S3 storage lifecycle tiering, right-sized compute, Savings Plans, AWS Cost Explorer & FinOps practices.",
+      },
+    ],
+  },
+];
+
 export const currentlyLearning = [
   "System Design",
-  "AWS Cloud Architecture",
   "Cloud-native & Distributed Systems",
+  "Advanced AWS Solutions & Kubernetes",
 ];
 
 export const technologies = [
@@ -80,3 +122,4 @@ export const technologies = [
   { name: "Next.js", icon: "nextjs", color: "#ffffff" },
   { name: "Git", icon: "git", color: "#f97316" },
 ];
+

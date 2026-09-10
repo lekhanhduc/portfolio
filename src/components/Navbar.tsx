@@ -1,15 +1,16 @@
 import { useState, type JSX } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
-import { FaUser, FaCode, FaBriefcase, FaEnvelope, FaSun, FaMoon } from "react-icons/fa";
+import { FaUser, FaCode, FaBriefcase, FaEnvelope, FaSun, FaMoon, FaAward } from "react-icons/fa";
 import { navLinks } from "../constants";
 import { useTheme } from "../context/ThemeContext";
 
-const navIcons: Record<string, { icon: JSX.Element; color: string }> = {
-  about: { icon: <FaUser />, color: "text-orange-400" },
-  skills: { icon: <FaCode />, color: "text-green-400" },
-  work: { icon: <FaBriefcase />, color: "text-amber-400" },
-  contact: { icon: <FaEnvelope />, color: "text-cyan-400" },
+const navIcons: Record<string, JSX.Element> = {
+  about: <FaUser />,
+  certifications: <FaAward />,
+  skills: <FaCode />,
+  work: <FaBriefcase />,
+  contact: <FaEnvelope />,
 };
 
 const Navbar = () => {
@@ -81,7 +82,7 @@ const Navbar = () => {
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`} className="flex items-center gap-1.5 px-2.5 py-1 rounded-md hover:bg-orange-500/10 transition-colors">
-                <span className={`text-xs ${navIcons[link.id].color}`}>{navIcons[link.id].icon}</span>
+                <span className="text-xs opacity-80">{navIcons[link.id]}</span>
                 {link.title}
               </a>
             </li>
@@ -152,7 +153,7 @@ const Navbar = () => {
                   }}
                 >
                   <a href={`#${link.id}`} className="flex items-center gap-2 p-1.5 rounded-md hover:bg-orange-500/10">
-                    <span className={`text-xs ${navIcons[link.id].color}`}>{navIcons[link.id].icon}</span>
+                    <span className="text-xs opacity-80">{navIcons[link.id]}</span>
                     {link.title}
                   </a>
                 </li>

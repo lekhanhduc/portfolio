@@ -134,40 +134,39 @@ const Work = () => {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const techConfig: Record<string, { icon: JSX.Element; color: string }> = {
-    "Spring Boot": { icon: <SiSpring />, color: "text-green-500" },
-    "Next.js": { icon: <SiNextdotjs />, color: isDark ? "text-white" : "text-gray-800" },
-    "PostgreSQL": { icon: <SiPostgresql />, color: "text-blue-400" },
-    "RDS MySQL": { icon: <SiMysql />, color: "text-orange-400" },
-    "MySQL": { icon: <SiMysql />, color: "text-orange-400" },
-    "Kafka": { icon: <SiApachekafka />, color: isDark ? "text-gray-300" : "text-gray-700" },
-    "Docker": { icon: <SiDocker />, color: "text-sky-400" },
-    "gRPC": { icon: <TbApi />, color: "text-teal-400" },
-    "Elasticsearch": { icon: <SiElasticsearch />, color: "text-yellow-400" },
-    "Qdrant": { icon: <BsDatabase />, color: "text-purple-400" },
-    "AI": { icon: <BsStars />, color: "text-pink-400" },
-    "Redis": { icon: <SiRedis />, color: "text-red-500" },
-    "WebSocket": { icon: <SiSocketdotio />, color: isDark ? "text-gray-300" : "text-gray-700" },
-    "PayOS": { icon: <TbCreditCard />, color: "text-green-400" },
-    "AWS": { icon: <FaAws />, color: "text-orange-400" },
-    "EC2": { icon: <SiAmazonec2 />, color: "text-orange-400" },
-    "GKE": { icon: <SiKubernetes />, color: "text-blue-500" },
-    "AWS Lambda": { icon: <SiAwslambda />, color: "text-orange-500" },
-    "API Gateway": { icon: <FaAws />, color: "text-purple-500" },
-    "DynamoDB": { icon: <FaAws />, color: "text-blue-500" },
-    "Cognito": { icon: <FaAws />, color: "text-red-400" },
-    "React": { icon: <SiReact />, color: "text-cyan-400" },
-    "SNS": { icon: <FaAws />, color: "text-pink-500" },
-    "Brevo": { icon: <FaAws />, color: "text-blue-400" },
-    "S3": { icon: <FaAws />, color: "text-green-500" },
-    "CloudFront": { icon: <FaAws />, color: "text-purple-400" },
-    "CloudWatch": { icon: <FaAws />, color: "text-orange-400" },
-    "Secrets Manager": { icon: <FaAws />, color: "text-red-500" },
+  const techConfig: Record<string, { icon: JSX.Element }> = {
+    "Spring Boot": { icon: <SiSpring /> },
+    "Next.js": { icon: <SiNextdotjs /> },
+    "PostgreSQL": { icon: <SiPostgresql /> },
+    "RDS MySQL": { icon: <SiMysql /> },
+    "MySQL": { icon: <SiMysql /> },
+    "Kafka": { icon: <SiApachekafka /> },
+    "Docker": { icon: <SiDocker /> },
+    "gRPC": { icon: <TbApi /> },
+    "Elasticsearch": { icon: <SiElasticsearch /> },
+    "Qdrant": { icon: <BsDatabase /> },
+    "AI": { icon: <BsStars /> },
+    "Redis": { icon: <SiRedis /> },
+    "WebSocket": { icon: <SiSocketdotio /> },
+    "PayOS": { icon: <TbCreditCard /> },
+    "AWS": { icon: <FaAws /> },
+    "EC2": { icon: <SiAmazonec2 /> },
+    "GKE": { icon: <SiKubernetes /> },
+    "AWS Lambda": { icon: <SiAwslambda /> },
+    "API Gateway": { icon: <FaAws /> },
+    "DynamoDB": { icon: <FaAws /> },
+    "Cognito": { icon: <FaAws /> },
+    "React": { icon: <SiReact /> },
+    "SNS": { icon: <FaAws /> },
+    "Brevo": { icon: <FaAws /> },
+    "S3": { icon: <FaAws /> },
+    "CloudFront": { icon: <FaAws /> },
+    "CloudWatch": { icon: <FaAws /> },
+    "Secrets Manager": { icon: <FaAws /> },
   };
 
   const titleClass = isDark ? "text-white" : "text-slate-900";
-  const tagBgClass = isDark ? "bg-slate-950/80 border-white/10" : "bg-slate-100 border-slate-200/80";
-  const tagTextClass = isDark ? "text-slate-300" : "text-slate-700";
+  const tagBgClass = isDark ? "bg-slate-950/70 border-white/10 text-slate-300" : "bg-slate-100 border-slate-200 text-slate-700";
 
   return (
     <section id="work" className="py-10 sm:py-14 relative flex justify-center overflow-hidden">
@@ -192,7 +191,7 @@ const Work = () => {
           </p>
         </motion.div>
 
-        {/* Projects Grid: Crisp, Compact & Squared */}
+        {/* Projects Grid: Crisp & Clean */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
           {projects.map((project, index) => (
             <motion.div
@@ -201,17 +200,16 @@ const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               viewport={{ once: true }}
-              whileHover={{ y: -3 }}
               className={`rounded-lg border overflow-hidden group transition-all duration-200 flex flex-col justify-between ${
                 isDark
-                  ? "bg-slate-900/85 backdrop-blur-md border-white/10 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10"
-                  : "bg-white border-slate-200 hover:border-orange-400 hover:shadow-md hover:shadow-orange-500/10 shadow-sm"
+                  ? "bg-slate-900/90 border-white/10 hover:border-slate-700 shadow-sm"
+                  : "bg-white border-slate-200 hover:border-slate-300 shadow-sm"
               }`}
             >
               <div>
                 {/* Compact Thumbnail Header */}
                 <div className={`h-24 sm:h-28 flex items-center justify-center transition-colors ${
-                  isDark ? "bg-slate-950/70 border-b border-white/5" : "bg-slate-50 border-b border-slate-100"
+                  isDark ? "bg-slate-950/60 border-b border-white/5" : "bg-slate-50 border-b border-slate-100"
                 }`}>
                   <div className="group-hover:scale-105 transition-transform duration-200">
                     {projectIcons[project.title] || <span className="text-3xl">{project.image}</span>}
@@ -238,17 +236,17 @@ const Work = () => {
                     {project.description}
                   </p>
 
-                  {/* Tech Badges: Squared & Clean */}
+                  {/* Tech Badges: Unified & Clean */}
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.map((tag) => {
-                      const tech = techConfig[tag] || { icon: null, color: "text-slate-300" };
+                      const tech = techConfig[tag] || { icon: null };
                       return (
                         <span
                           key={tag}
                           className={`px-2 py-0.5 rounded-md text-[10px] font-medium border flex items-center gap-1 ${tagBgClass}`}
                         >
-                          <span className={tech.color}>{tech.icon}</span>
-                          <span className={tagTextClass}>{tag}</span>
+                          {tech.icon && <span className="opacity-80">{tech.icon}</span>}
+                          <span>{tag}</span>
                         </span>
                       );
                     })}
@@ -262,8 +260,8 @@ const Work = () => {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-md text-xs font-semibold transition-all duration-150 w-full justify-center shadow-sm shadow-orange-500/20 hover:shadow-md hover:shadow-orange-500/30 cursor-pointer"
-                  style={{ color: '#ffffff' }}
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md text-xs font-semibold transition-all duration-150 w-full justify-center shadow-sm cursor-pointer"
+                  style={{ color: "#ffffff" }}
                 >
                   <FaExternalLinkAlt className="text-[11px]" />
                   <span>Live Demo</span>
@@ -273,7 +271,7 @@ const Work = () => {
           ))}
         </div>
 
-        {/* GitHub CTA: Squared & Sleek */}
+        {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -285,8 +283,8 @@ const Work = () => {
             href="https://github.com/lekhanhduc"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 shadow-md shadow-orange-500/25 cursor-pointer"
-            style={{ color: '#ffffff' }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 shadow-sm cursor-pointer"
+            style={{ color: "#ffffff" }}
           >
             <FaGithub className="text-sm" />
             <span>View More on GitHub</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Navbar, Hero, About, Skills, Work, Contact, Footer } from "./components";
+import { Navbar, Hero, About, Skills, Certificates, Work, Contact, Footer } from "./components";
 import Preloader from "./components/Preloader";
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
           <Navbar />
           <Hero />
           <About />
+          <Certificates />
           <Skills />
           <Work />
           <Contact />

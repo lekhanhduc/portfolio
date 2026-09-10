@@ -148,7 +148,7 @@ const Contact = () => {
                     : "bg-slate-50 border-slate-200 shadow-sm"
                 }`}
               >
-                <div className="w-7 h-7 rounded-md bg-blue-500/10 flex items-center justify-center text-blue-500 shrink-0">
+                <div className="w-7 h-7 rounded-md bg-orange-500/10 flex items-center justify-center text-orange-500 shrink-0">
                   <FaMapMarkerAlt className="text-xs" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -175,8 +175,8 @@ const Contact = () => {
                   required
                   className={`w-full px-3.5 py-2.5 rounded-md border text-xs sm:text-sm transition-all outline-none ${
                     isDark
-                      ? "bg-slate-950/70 border-white/10 text-white placeholder-slate-500 focus:border-orange-500 focus:bg-slate-950 focus:ring-2 focus:ring-orange-500/15"
-                      : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/10"
+                      ? "bg-slate-950/70 border-white/10 text-white placeholder-slate-500 focus:border-orange-500 focus:bg-slate-950"
+                      : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white"
                   }`}
                 />
               </div>
@@ -194,8 +194,8 @@ const Contact = () => {
                   required
                   className={`w-full px-3.5 py-2.5 rounded-md border text-xs sm:text-sm transition-all outline-none ${
                     isDark
-                      ? "bg-slate-950/70 border-white/10 text-white placeholder-slate-500 focus:border-orange-500 focus:bg-slate-950 focus:ring-2 focus:ring-orange-500/15"
-                      : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/10"
+                      ? "bg-slate-950/70 border-white/10 text-white placeholder-slate-500 focus:border-orange-500 focus:bg-slate-950"
+                      : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white"
                   }`}
                 />
               </div>
@@ -213,8 +213,8 @@ const Contact = () => {
                   rows={3}
                   className={`w-full px-3.5 py-2.5 rounded-md border text-xs sm:text-sm transition-all outline-none resize-none ${
                     isDark
-                      ? "bg-slate-950/70 border-white/10 text-white placeholder-slate-500 focus:border-orange-500 focus:bg-slate-950 focus:ring-2 focus:ring-orange-500/15"
-                      : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-500/10"
+                      ? "bg-slate-950/70 border-white/10 text-white placeholder-slate-500 focus:border-orange-500 focus:bg-slate-950"
+                      : "bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400 focus:border-orange-500 focus:bg-white"
                   }`}
                 />
               </div>
@@ -222,7 +222,8 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm shadow-orange-500/25 hover:shadow-md hover:shadow-orange-500/35 cursor-pointer"
+                className="w-full py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm cursor-pointer"
+                style={{ color: "#ffffff" }}
               >
                 {loading ? "Sending Message..." : (
                   <>
