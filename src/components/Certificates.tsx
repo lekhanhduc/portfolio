@@ -41,7 +41,7 @@ const Certificates = () => {
   const titleClass = isDark ? "text-white" : "text-slate-900";
 
   return (
-    <section id="certifications" className="py-10 sm:py-14 relative flex justify-center overflow-hidden">
+    <section id="certifications" className="py-8 sm:py-12 relative flex justify-center overflow-hidden">
       <div className="w-full max-w-6xl px-4 sm:px-8 lg:px-16 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -49,22 +49,22 @@ const Certificates = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-left mb-8"
+          className="text-left mb-5 sm:mb-6"
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2.5">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2">
             <FaAward className="text-xs" />
             <span>VERIFIED CREDENTIALS</span>
           </div>
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${titleClass} tracking-tight`}>
             Certifications<span className="text-orange-500">.</span>
           </h2>
-          <p className="text-secondary text-xs sm:text-sm max-w-2xl mt-1.5 leading-relaxed">
+          <p className="text-secondary text-xs sm:text-sm max-w-2xl mt-1 leading-relaxed">
             Industry-recognized certifications validating high-availability cloud architecture, distributed systems design, and enterprise cloud engineering standards.
           </p>
         </motion.div>
 
         {/* Certifications Showcase Card */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.id}
@@ -72,13 +72,13 @@ const Certificates = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`rounded-lg p-5 sm:p-7 border relative overflow-hidden transition-all duration-200 ${
+              className={`rounded-lg p-4 sm:p-6 border relative overflow-hidden transition-all duration-200 ${
                 isDark
                   ? "bg-slate-900/90 border-white/10 hover:border-slate-700 shadow-sm"
                   : "bg-white border-slate-200 hover:border-slate-300 shadow-sm"
               }`}
             >
-              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 sm:gap-8 relative z-10">
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-5 sm:gap-6 relative z-10">
                 {/* Left: AWS Badge Showcase */}
                 <div className="flex flex-col items-center justify-center shrink-0">
                   <div className="transition-transform duration-200 hover:scale-105">

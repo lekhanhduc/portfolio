@@ -10,7 +10,7 @@ const Skills = () => {
   const isLight = theme === "light";
 
   return (
-    <section id="skills" className="py-10 sm:py-14 relative flex justify-center overflow-hidden">
+    <section id="skills" className="py-8 sm:py-12 relative flex justify-center overflow-hidden">
       <div className="w-full max-w-6xl px-4 sm:px-8 lg:px-16 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -18,22 +18,22 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-left mb-8"
+          className="text-left mb-5 sm:mb-6"
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2.5">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2">
             <HiLightningBolt className="text-xs" />
             <span>CORE CAPABILITIES</span>
           </div>
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${titleClass} tracking-tight`}>
             Technologies<span className="text-orange-500">.</span>
           </h2>
-          <p className="text-secondary text-xs sm:text-sm max-w-2xl mt-2 leading-relaxed">
+          <p className="text-secondary text-xs sm:text-sm max-w-2xl mt-1 leading-relaxed">
             Interactive 3D representation of backend frameworks, databases, messaging queues, and cloud tools I engineer production systems with.
           </p>
         </motion.div>
 
         {/* 3D Ball Canvases Grid */}
-        <div className="flex flex-row flex-wrap justify-center gap-8 sm:gap-10">
+        <div className="flex flex-row flex-wrap justify-center gap-6 sm:gap-8">
           {technologies.map((tech) => (
             <div
               key={tech.name}

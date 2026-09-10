@@ -63,10 +63,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] lg:min-h-screen flex items-center justify-center hero-gradient overflow-hidden pt-20 pb-4 sm:pt-24 sm:pb-8">
+    <section className="relative w-full flex items-center justify-center hero-gradient overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-16">
       <HeroBackground />
 
-      <div className="max-w-6xl w-full mx-auto px-4 sm:px-8 lg:px-16 py-6 sm:py-10 relative z-10">
+      <div className="max-w-6xl w-full mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Column */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:flex-1">
@@ -166,42 +166,6 @@ const Hero = () => {
                   </span>
                 </motion.a>
               ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.8 }}
-              className="flex gap-3 sm:gap-4 mt-8 sm:mt-10"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <motion.a
-                href="#contact"
-                whileHover={{
-                  scale: 1.03,
-                  boxShadow: "0 10px 25px rgba(249, 115, 22, 0.35)",
-                  transition: { duration: 0.15 }
-                }}
-                whileTap={{ scale: 0.97 }}
-                className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-md font-semibold transition-all text-white shadow-md shadow-orange-500/25 cursor-pointer text-xs sm:text-sm"
-                style={{ color: '#ffffff', transformStyle: "preserve-3d" }}
-              >
-                Contact Me
-              </motion.a>
-              <motion.a
-                href="#work"
-                whileHover={{
-                  scale: 1.03,
-                  boxShadow: "0 10px 25px rgba(249, 115, 22, 0.15)",
-                  transition: { duration: 0.15 }
-                }}
-                whileTap={{ scale: 0.97 }}
-                className={`px-6 py-2.5 border-2 border-orange-500 rounded-md font-semibold hover:bg-orange-500/10 transition-colors text-xs sm:text-sm cursor-pointer ${isDark ? "text-orange-400" : "text-orange-600"
-                  }`}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                View Work
-              </motion.a>
             </motion.div>
           </div>
 

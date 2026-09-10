@@ -81,7 +81,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-10 sm:py-14 relative flex justify-center overflow-hidden">
+    <section id="contact" className="py-8 sm:py-12 relative flex justify-center overflow-hidden">
       <AnimatePresence>
         {toast.show && (
           <Toast 
@@ -93,22 +93,22 @@ const Contact = () => {
       </AnimatePresence>
 
       <div className="w-full max-w-6xl px-4 sm:px-8 lg:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
           {/* Left Column: Form & Info Card (7 cols) - Squared & Compact */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45 }}
             viewport={{ once: true }}
-            className={`lg:col-span-7 rounded-lg border p-5 sm:p-7 transition-all duration-200 ${
+            className={`lg:col-span-7 rounded-lg border p-4 sm:p-6 transition-all duration-200 ${
               isDark
                 ? "bg-slate-900/85 backdrop-blur-md border-white/10 shadow-xl shadow-black/40"
                 : "bg-white border-slate-200 shadow-sm"
             }`}
           >
             {/* Header */}
-            <div className="mb-5">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2">
+            <div className="mb-4">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-1.5">
                 <HiMail className="text-xs" />
                 <span>GET IN TOUCH</span>
               </div>

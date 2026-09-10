@@ -21,28 +21,28 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="pt-2 pb-10 sm:pt-4 sm:pb-14 relative flex justify-center overflow-hidden">
+    <section id="about" className="py-8 sm:py-12 relative flex justify-center overflow-hidden">
       <div className="w-full max-w-6xl px-4 sm:px-8 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-left mb-8"
+          className="text-left mb-5 sm:mb-6"
         >
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2.5">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-orange-500/10 border border-orange-500/30 text-orange-500 text-xs font-mono font-semibold tracking-wider uppercase mb-2">
             <span>GET TO KNOW ME</span>
           </div>
           <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${titleClass} tracking-tight`}>
             Overview<span className="text-orange-500">.</span>
           </h2>
-          <p className="text-secondary text-xs sm:text-sm max-w-xl mt-1.5 leading-relaxed">
+          <p className="text-secondary text-xs sm:text-sm max-w-xl mt-1 leading-relaxed">
             A backend-focused software engineer dedicated to building resilient distributed systems and scalable cloud architectures.
           </p>
         </motion.div>
 
         {/* Stats Row: Crisp & Squared */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
